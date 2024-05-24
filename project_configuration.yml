@@ -1,0 +1,497 @@
+namespace: software-engineering-muc.dai/semester/sose2024/09-modularbeit2
+project_name: 09-modularbeit2
+starter_code: git@gitlab.lrz.de:hm/teaching/muc.dai/software-engineering/uebungen/sose2024/09-modularbeit2.git
+access_level: maintainer
+per: student # Alternative: student or group
+enable_ci: True
+squash_commit_history: True
+branches: 
+  - main
+  - test_answer
+  - test_lives
+  - test_name
+  - test_player
+  - test_question
+  - test_questions_factory
+  - test_questions_from_json_file_factory
+  - test_questions_from_server_factory
+  - test_score
+labels:
+  - name: Type::Bug
+    color: | 
+      #dc143c
+  - name: Type::User Story
+    color: | 
+      #6699cc
+
+milestones:
+  - title: Sprint 1
+    start_date: | 
+      2024-05-24
+    due_date: |
+      2024-06-07
+  - title: Sprint 2
+    start_date: | 
+      2024-05-24
+    due_date: |
+      2024-06-07
+
+boards:
+  - name: Sprint Planning
+    board_list:
+      milestone: 
+        - Sprint 1
+        - Sprint 2
+
+issues:
+  - title: Class for player's name
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 2
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** my name to be stored
+      **so that** it can later on appear in the highscore
+
+      # Acceptance Criteria
+
+      * The branch `tests_name` is merged into the feature branch created by the merge request of this user story.
+      * The class `Name` is implemented in file `src/name.py` as specified in the class diagram `diagrams/player.puml`.
+      * Simple code is written in `main.py` showing that an object of type `Name` can be created and printed.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member function `__str__()` should return the name as string.
+
+  - title: Class for player's score
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 2
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** track my score
+      **so that** it can later on appear in the highscore
+
+      # Acceptance Criteria
+
+      * The branch `tests_score` is merged into the feature branch created by the merge request of this user story.
+      * The class `Score` is implemented in file `src/score.py` as specified in the class diagram `diagrams/player.puml`.
+      * Simple code is written in `main.py` showing that an object of type `Score` can be created, score can be added and printed.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member function `__init__()` initializes the member variable `score` to zero.
+      * The member function `get()` should return the current score.
+      * The member function `add()` should add `score` to the member variable `score`.
+      * The member function `reset()` should reset the member variable `score` to zero.
+
+  - title: Class for player's lives
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 2
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** track my lives
+      **so that** it can continue playing until I have lost all lives.
+
+      # Acceptance Criteria
+
+      * The branch `tests_lives` is merged into the feature branch created by the merge request of this user story.
+      * The class `Lives` is implemented in `src/lives.py` as specified in the class diagram `diagrams/player.puml`.
+      * Simple code is written in `main.py` showing that an object of type `Lives` can be created, lives can be lost and `is_game_over` is working correctly.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The class should store the initial lives (=3) in a private static member variable named `INITIAL_LIVES`.
+      * The member variable `lives` stores the number of remaining lives.
+      * The member function `get()` should return the current number of lives.
+      * The member function `reset()` should set the number of lives back to the value stored in `INITIAL_LIVES`.
+      * The member function `loose_a_life()` should reduce to number of lives by one, but only to a minimum of zero lives.
+      * The member function `is_game_over()` should return `True` if the number of lives equals to zero, otherwise `False`.
+
+  - title: Class for player
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 2
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** status to be tracked
+      **so that** it can play the game with lives, score and name being shown.
+
+      # Acceptance Criteria
+
+      * The branch `tests_player` is merged into the feature branch created by the merge request of this user story.
+      * The class `Player` is implemented in `src/player.py` as specified in the class diagram `diagrams/player.puml`.
+      * Simple code is written in `main.py` showing that an object of type `Player` can be created, lives, score and name can be obtained and reset.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member function `reset()` should reset score and lives.
+      * The member function `lives()` should return the member variable `lives`.
+      * The member function `score()` should return the member variable `score`.
+      * The member function `name()` should return the member variable `name`.
+
+  - title: Class for answer
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 2
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** the game to be able to check if the answer is correct
+      **so that** the game is playable.
+
+      # Acceptance Criteria
+
+      * The branch `tests_answer` is merged into the feature branch created by the merge request of this user story.
+      * The class `Answer` is implemented in `src/answer.py` as specified in the class diagram `diagrams/question_data.puml`.
+      * Simple code is written in `main.py` showing that an object of type `Answer` can be created and it can be checked if the answer is correct.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member variable `answer_text` stores the text of one answer, e.g. "Humpback whales"
+      * The member variable `is_correct_answer` stores if the answer is correct or not
+      * The member function `is_correct()` should return the value of the member variable `is_correct_answer`.
+      * The member function `__str__()` should return the answer text as string.
+
+  - title: Class for question
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 4
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** the game to ask a question
+      **so that** the game is playable.
+
+      # Acceptance Criteria
+
+      * The branch `tests_question` is merged into the feature branch created by the merge request of this user story.
+      * The class `Question` is implemented in `src/question.py` as specified in the class diagram `diagrams/question_data.puml`.
+      * Simple code is written in `main.py` showing that an object of type `Question` can be created, printed and checked that answers are shuffled.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member variable `question_text` stores the question's text.
+      * The member variable `answers` stores a list of answers, each of type Answer.
+      * The constructor initializes the member variable `question_text` from the parameter `question_text`.
+      * The constructor's parameter `correct_answer_text` contains the text of the correct answer, e.g., if "Foo" is the correct answer to a question this variable will contain the value "Foo".
+      * The constructor creates objects of Type Answer for each String in the list of Strings of parameter answer_texts and appends it to the member variable `answers`.
+      * The constructor shuffles the list of answers using the member function `shuffle_answers`.
+      * The member function `get_question_text()` should return the question text as string.
+      * The member function `get_answers()` should return the list of answers.
+      * The member function `shuffle_answers()` should shuffle the answers using `random.shuffle()`.
+      * The member function `__str__()` should return the question as String in the following format:
+
+        ```text
+        Question: What is the capital of France?
+        a) Berlin
+        b) Madrid
+        c) Paris
+        d) Rome
+        ```
+
+        where "What is the capital of France?" is the question text and "Berlin", etc. are the shuffled answers.
+        Pay attention to exactly follow the scheme including all spaces and newlines. Otherwise the tests will fail.
+
+  - title: Class for loading questions from JSON-File
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 5
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** get interesting questions from a file
+      **so that** I can play the game even if I have no internet connection.
+
+      # Acceptance Criteria
+
+      * The branch `tests_questions_from_json_file_factory` is merged into the feature branch created by the merge request of this user story.
+      * The class `QuestionsFromJsonFileFactory` is implemented in `src/questions_from_json_file_factory.py` as specified in the class diagram `diagrams/question_data.puml`.
+      * Simple code is written in `main.py` showing that an object of type `QuestionsFromJsonFileFactory` can be created.
+        The code should demonstrate that the object can be used to obtain the total number of available questions as well as questions of desired index.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member function `load_questions()` loads all questions from the file `path_to_file`.
+        It loads the file, creates objects of type `Question`, adds these objects to a list and returns the list.
+        An example file is given with `assets/questions.json`.
+      * The constructor uses `load_questions()` to load the questions and store it in the member variable `questions`.
+      * The constructor shuffles the questions in the list using `random.shuffle()`.
+      * The member function `get_total_number_of_questions()` returns the total number of available questions.
+        If no questions have been loaded the function should return `0`.
+      * The member function `get_question()` returns an object of type `Question` of the given list index. 
+        Counting starts at zero.
+        If the index is out of bounds the function should return `None`.
+      * If the file cannot be loaded since the path is wrong the construction should handle this error by throwing the exception FileNotFoundError.
+        The python application must not crash.
+        Calling `get_question()` and `get_total_number_of_questions()` have to return None and 0 respectively.
+
+  - title: Class for loading questions from Server
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 5
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** get interesting questions from a server
+      **so that** there is a huge variety of questions.
+
+      # Acceptance Criteria
+
+      * The branch `tests_questions_from_server_factory` is merged into the feature branch created by the merge request of this user story.
+      * The class `QuestionsFromServerFactory` is implemented in`src/questions_from_server_factory.py" as specified in the class diagram `diagrams/question_data.puml`.
+      * The class is working with the REST API as specified in `question_server/README.md`.
+      * Simple test code is written in `main.py` showing that an object of type `QuestionsFromServerFactory` can be created.
+        The code should demonstrate that the object can be used to obtain the total number of available questions as well as questions of desired index.
+        Use the dummy server implemented in `question_server/question_server.py` to test your code.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * The member variable `base_url` stores the value of parameter `base_url`, e.g. `http://127.0.0.1:5000` for the provided question server.
+      * The member variable `api_key` stores the API key.
+      * The function `get_total_number_of_questions()` issues a GET request to obtain the total number of questions using the REST API of the provided question server and returns it as integer.
+        The function should behave as specified in the sequence diagram `diagrams/sequence_diagram_get_total_number_of_questions.puml`.
+      * The function `get_question()` issues a GET request to obtain the question of desired index.
+        The function should behave as specified in the sequence diagram `diagrams/sequence_diagram_get_question.puml`.
+      * Note: if you cannot implement this user story simply skip this user story and also "Interface class question factory" and continue with user story "Game Application".
+
+  - title: Interface class question factory
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 4
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** play the game seamlessly, no matter if online or offline
+      **so that** I don't have to worry about my internet connection
+
+      # Acceptance Criteria
+
+      * The branch `tests_questions_factory` is merged into the feature branch created by the merge request of this user story.
+      * The class diagram in `question_data.puml` is extended with interface `QuestionsFactory` being implemented by `QuestionsFromJsonFileFactory` and `QuestionsFromServerFactory`. 
+        The interface must have two abstract functions: get_total_number_of_questions() and get_question().
+      * The interface must have a protected member function `json_to_question(json: dictionary): Question`, where `json` is a dictionary with one question.
+        The function should return a valid Question object. Error handling is not required.
+      * The interface `QuestionsFactory` is implemented in`src/questions_factory.py" according to your specification.
+      * The interface is implemented by both `QuestionsFromJsonFileFactory` and `QuestionsFromServerFactory`.
+      * The protected function `json_to_question()` is used by both, `QuestionsFromJsonFileFactory` and `QuestionsFromServerFactory`.
+      * All tests are passed (green).
+
+      # Additional Information
+
+      * If you cannot implement this user story, you can still solve the user story Game Application.
+        For this simply implement the game as if there is never a internet connection.
+      * The following code shows an example of the dictionary the function `json_to_question()` should work with:
+        
+        ```python
+        question_json = {
+          "question": "What is the largest planet in our Solar System?",
+          "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
+          "correct": "Jupiter"
+        }
+        ```
+  
+  - title: Game Application
+    labels: Type::User Story
+    milestone: Sprint 1
+    weight: 7
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** play the quiz game
+      **so that** I have fun and learn something.
+
+      # Acceptance Criteria
+
+      * A text based version of the quiz king is implemented in a class named `TextBasedGame` in file `src/text_based_game.py` according to the activity diagram provided with `diagrams/activity_play.puml`.
+      * The class diagram `question_data.puml' is extended with this new class `TextBasedGame`.
+      * The class `TextBasedGame` has a public member method `run()` which starts the game.
+      * The object of type `TextBasedGame` is created in `main.py`.
+      * The game is started by calling `text_based_game.run()` in `main()`.
+
+      # Additional Information
+
+      * There are no tests for this user story. 
+      * You can check yourself if the game works as expected. Simply watch the gameplay shown in `images/gameplay_text_based.gif`.
+      * The class should instantiate all required objects in the constructor.
+      * If the connection to the dummy Question Server is successful the game should use the `QuestionFromServerFactory` as source for questions.
+      * If the connection cannot be established, the game should use the `QuestionFromJsonFileFactory` as source for questions.
+
+  - title: Questions with more or less than 4 answer choices
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 3
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have a varying number of answer possibilities
+      **so that** the game has a higher variety of question types.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * Game supports questions with answer numbers in the range of two to 6 answers.
+      * An Additional JSON-File `assets/questions_with_variying_answers.py` is added that showcases the feature.
+      * `main.py` is adapted so that the game uses this additional JSON-file.
+
+  - title: Game menu
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 5
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have a game menu being shown at the beginning
+      **so that** I can choose between playing the game, viewing the highscore or exiting the game.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * After starting the game the player can choose between `Play`, `View highscore` and `Exit game`.
+      * The quiz game starts if `Play` is selected.
+      * A dummy highscore is shown if `View highscore` is selected (unless User Story Highscore is implemented; in this case the real highscore has to be shown).
+      * The game is exited if `Exit game` is selected.
+
+  - title: Highscore
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 8
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have highscore
+      **so that** I can compare my performance to other players and see my personal improvement.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * If a highscore file (of to be self-defined format) exists, the highscore is loaded during startup of the game.
+      * If a highscore file does not exist, the game creates a file after the game has been played once containing the result of th gameplay.
+      * After a player has played a round, his or her score shall be entered into the highscore, the highscore should be viewed and stored, i.e., the highscore has to be extended with each gameplay. 
+      * The highscore contains 10 best entries at maximum.
+      
+  - title: Customtkinter GUI
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 10
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have a nice GUI
+      **so that** playing the game is more fun.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * The game can be played with a customtkinter based GUI.
+      * The game shows a window that allows entering the player's name at the beginning.
+      * The game shows the game menu (including the Quiz King Logo (see `assets/logo.jpg`)
+      * The game play shows the question text, player's lives, score using labels and allows answering using buttons.
+      * The highscore (if implemented) is shown after a game round or if `View highscore` is selected in the game menu.
+      
+  - title: Questions with images
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 8
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have questions about images
+      **so that** there is a larger variety of question types.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * Questions about given images can be added to the JSON-File, e.g., "What does the following image show?"
+      * Questions about given images can be played in the game (requires Customtkinter User Story to be implemented).
+
+  - title: 30s Timer
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 8
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have a timer for questions
+      **so that** the game becomes more thrilling.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * When a new question is shown, a 30s timer should be started.
+      * The remaining time should be updated every second.
+      * If the timer expires without the player answering the question, the player should loose a life and the next question should be shown.
+
+  - title: Difficulties Level
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 4
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have the choice between different difficulty levels
+      **so that** I can choose levels fitting to my knowledge level.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * An example JSON-File is extended with difficulties per question (1 for easy, 2, for medium and 3 for hard).
+      * At the beginning of the game, the player can choose between the three difficulties easy, medium and hard.
+      * Only questions from the selected difficulty should be questioned.
+      * The score per question should be 20 for easy questions, 50 per medium questions and 100 for hard questions.
+
+  - title: Report incorrect answers
+    labels: Type::User Story
+    milestone: Sprint 2
+    weight: 4
+    description: |
+      # User Story
+
+      **As a** player
+      **I want to** have the possibility to report incorrect answers
+      **so that** I the questions quality improves over time.
+
+      # Acceptance Criteria
+
+      * A class diagram for the solution is created in the `diagrams` folder.
+      * One of the following dynamic UML diagrams is created in the `diagrams` folder: activity diagram, sequence diagram or state diagram.
+      * The REST API is extended with a POST to '/<api_key>/report_question'
+      * Questions are extended with an ID
+      * On clicking / selecting `Report incorrect question` a POST request should be sent to the server including the question id as JSON-String.

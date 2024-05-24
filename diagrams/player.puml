@@ -1,0 +1,46 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class Player {
+    + __init__(name)
+    + reset(): None
+    + score(): Score
+    + lives(): Lives
+    + name(): Name
+    - name: Name
+    - score: Score
+    - lives: Lives
+}
+
+class Lives {
+    - {static} INITIAL_LIVES: int
+    + reset(): None
+    + loose_a_life(): None
+    + is_game_over(): boolean
+    + get(): int
+    - lives: int
+}
+
+class Score {
+    - score: int
+    + reset()
+    + __init__()
+    + add(score: int): int
+    + get(): int
+    + reset(): None
+}
+
+class Name {
+    + __init__(name: String)
+    + __str__(): String
+    - name: String
+}
+
+Player *--> Lives
+Player *--> Score
+Player *--> Name
+
+
+@enduml

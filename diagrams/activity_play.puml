@@ -1,0 +1,27 @@
+```plantuml
+@startuml
+
+start
+
+:Initialize game;
+:Ask player for name;
+:Display 'Welcome <name>!' message;
+while (Player has lives?) is (True)
+  :Print current question and answers;
+  :Ask player for input;
+  if (Answer correct?) then (yes)
+    :Display "Correct!" message;
+    :Add 100 points to player's score;
+    :Display "Your score is ..." message;
+    :Increment question counter;
+  else (no)
+    :Display "Incorrect!" message;
+    :Lose a life;
+    :Display 'Remaining lives: ...' message;
+  endif
+endwhile (False)
+:Display '<name>, you have achieved ... points' message;
+:Exit game;
+end
+@enduml
+```

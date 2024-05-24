@@ -1,0 +1,427 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "choices": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct": "Paris"
+    },
+    {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "choices": ["William Shakespeare", "Charles Dickens", "Mark Twain", "Jane Austen"],
+        "correct": "William Shakespeare"
+    },
+    {
+        "question": "What is the largest planet in our Solar System?",
+        "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "correct": "Jupiter"
+    },
+    {
+        "question": "What is the chemical symbol for water?",
+        "choices": ["O2", "H2O", "CO2", "H2"],
+        "correct": "H2O"
+    },
+    {
+        "question": "Who painted the Mona Lisa?",
+        "choices": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        "correct": "Leonardo da Vinci"
+    },
+    {
+        "question": "What is the hardest natural substance on Earth?",
+        "choices": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct": "Diamond"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "choices": ["Venus", "Mars", "Mercury", "Jupiter"],
+        "correct": "Mars"
+    },
+    {
+        "question": "In which year did the Titanic sink?",
+        "choices": ["1912", "1905", "1915", "1920"],
+        "correct": "1912"
+    },
+    {
+        "question": "Who developed the theory of relativity?",
+        "choices": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+        "correct": "Albert Einstein"
+    },
+    {
+        "question": "Which element has the atomic number 1?",
+        "choices": ["Helium", "Oxygen", "Hydrogen", "Carbon"],
+        "correct": "Hydrogen"
+    },
+    {
+        "question": "What is the largest mammal in the world?",
+        "choices": ["Elephant", "Blue Whale", "Giraffe", "Great White Shark"],
+        "correct": "Blue Whale"
+    },
+    {
+        "question": "Which country is home to the kangaroo?",
+        "choices": ["India", "Brazil", "Australia", "South Africa"],
+        "correct": "Australia"
+    },
+    {
+        "question": "What is the smallest unit of life?",
+        "choices": ["Atom", "Molecule", "Cell", "Organ"],
+        "correct": "Cell"
+    },
+    {
+        "question": "Which language is the most spoken worldwide?",
+        "choices": ["English", "Spanish", "Mandarin Chinese", "Hindi"],
+        "correct": "Mandarin Chinese"
+    },
+    {
+        "question": "Who discovered penicillin?",
+        "choices": ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Gregor Mendel"],
+        "correct": "Alexander Fleming"
+    },
+    {
+        "question": "What is the tallest mountain in the world?",
+        "choices": ["K2", "Mount Kilimanjaro", "Mount Everest", "Mount Fuji"],
+        "correct": "Mount Everest"
+    },
+    {
+        "question": "In which continent is the Sahara Desert located?",
+        "choices": ["Asia", "Africa", "Australia", "South America"],
+        "correct": "Africa"
+    },
+    {
+        "question": "What is the main ingredient in guacamole?",
+        "choices": ["Tomato", "Cucumber", "Avocado", "Pepper"],
+        "correct": "Avocado"
+    },
+    {
+        "question": "What is the capital of Japan?",
+        "choices": ["Seoul", "Beijing", "Bangkok", "Tokyo"],
+        "correct": "Tokyo"
+    },
+    {
+        "question": "Who is the author of 'Harry Potter'?",
+        "choices": ["J.R.R. Tolkien", "George R.R. Martin", "J.K. Rowling", "Suzanne Collins"],
+        "correct": "J.K. Rowling"
+    },
+    {
+        "question": "What is the largest ocean on Earth?",
+        "choices": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct": "Pacific Ocean"
+    },
+    {
+        "question": "What is the main gas found in the air we breathe?",
+        "choices": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "correct": "Nitrogen"
+    },
+    {
+        "question": "Which planet is closest to the sun?",
+        "choices": ["Venus", "Mars", "Earth", "Mercury"],
+        "correct": "Mercury"
+    },
+    {
+        "question": "Who is known as the 'Father of Computers'?",
+        "choices": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct": "Charles Babbage"
+    },
+    {
+        "question": "What is the capital city of Canada?",
+        "choices": ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+        "correct": "Ottawa"
+    },
+    {
+        "question": "Which organ is responsible for pumping blood throughout the human body?",
+        "choices": ["Lungs", "Brain", "Heart", "Kidneys"],
+        "correct": "Heart"
+    },
+    {
+        "question": "What is the boiling point of water?",
+        "choices": ["90°C", "100°C", "120°C", "150°C"],
+        "correct": "100°C"
+    },
+    {
+        "question": "Which is the longest river in the world?",
+        "choices": ["Nile", "Amazon", "Yangtze", "Mississippi"],
+        "correct": "Nile"
+    },
+    {
+        "question": "Which country gifted the Statue of Liberty to the United States?",
+        "choices": ["France", "Germany", "Italy", "Spain"],
+        "correct": "France"
+    },
+    {
+        "question": "What is the chemical symbol for gold?",
+        "choices": ["Au", "Ag", "Pb", "Fe"],
+        "correct": "Au"
+    },
+    {
+        "question": "Which planet has the most moons?",
+        "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "correct": "Jupiter"
+    },
+    {
+        "question": "Who was the first man to step on the moon?",
+        "choices": ["Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins"],
+        "correct": "Neil Armstrong"
+    },
+    {
+        "question": "What is the primary language spoken in Brazil?",
+        "choices": ["Spanish", "English", "Portuguese", "French"],
+        "correct": "Portuguese"
+    },
+    {
+        "question": "Which element is needed for the formation of bones and teeth?",
+        "choices": ["Iron", "Calcium", "Magnesium", "Potassium"],
+        "correct": "Calcium"
+    },
+    {
+        "question": "Which continent is the largest by land area?",
+        "choices": ["Africa", "Asia", "North America", "Europe"],
+        "correct": "Asia"
+    },
+    {
+        "question": "Which country won the FIFA World Cup in 2018?",
+        "choices": ["Brazil", "Germany", "Argentina", "France"],
+        "correct": "France"
+    },
+    {
+        "question": "Who is the author of 'To Kill a Mockingbird'?",
+        "choices": ["Harper Lee", "F. Scott Fitzgerald", "Ernest Hemingway", "John Steinbeck"],
+        "correct": "Harper Lee"
+    },
+    {
+        "question": "What is the most widely eaten fruit in the world?",
+        "choices": ["Banana", "Apple", "Grapes", "Orange"],
+        "correct": "Banana"
+    },
+    {
+        "question": "What is the process by which plants make their food?",
+        "choices": ["Respiration", "Photosynthesis", "Transpiration", "Fermentation"],
+        "correct": "Photosynthesis"
+    },
+    {
+        "question": "Who invented the telephone?",
+        "choices": ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Guglielmo Marconi"],
+        "correct": "Alexander Graham Bell"
+    },
+    {
+        "question": "Which country is known as the Land of the Rising Sun?",
+        "choices": ["China", "Japan", "Thailand", "Vietnam"],
+        "correct": "Japan"
+    },
+    {
+        "question": "Which ocean is the smallest by surface area?",
+        "choices": ["Atlantic Ocean", "Indian Ocean", "Southern Ocean", "Arctic Ocean"],
+        "correct": "Arctic Ocean"
+    },
+    {
+        "question": "Which metal is liquid at room temperature?",
+        "choices": ["Mercury", "Gold", "Silver", "Lead"],
+        "correct": "Mercury"
+    },
+    {
+        "question": "Who was the first President of the United States?",
+        "choices": ["Abraham Lincoln", "Thomas Jefferson", "George Washington", "John Adams"],
+        "correct": "George Washington"
+    },
+    {
+        "question": "What is the smallest continent by land area?",
+        "choices": ["Europe", "Australia", "South America", "Antarctica"],
+        "correct": "Australia"
+    },
+    {
+        "question": "Which planet is known as the Earth's twin?",
+        "choices": ["Mars", "Venus", "Jupiter", "Saturn"],
+        "correct": "Venus"
+    },
+    {
+        "question": "What is the largest bone in the human body?",
+        "choices": ["Humerus", "Femur", "Tibia", "Fibula"],
+        "correct": "Femur"
+    },
+    {
+        "question": "Who wrote 'Pride and Prejudice'?",
+        "choices": ["Emily Brontë", "Charlotte Brontë", "Jane Austen", "Mary Shelley"],
+        "correct": "Jane Austen"
+    },
+    {
+        "question": "What is the primary component of the sun?",
+        "choices": ["Oxygen", "Nitrogen", "Carbon", "Hydrogen"],
+        "correct": "Hydrogen"
+    },
+    {
+        "question": "Which vitamin is produced when a person is exposed to sunlight?",
+        "choices": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+        "correct": "Vitamin D"
+    },
+    {
+        "question": "What is the name of the longest river in South America?",
+        "choices": ["Amazon River", "Paraná River", "Orinoco River", "Magdalena River"],
+        "correct": "Amazon River"
+    },
+    {
+        "question": "Which famous scientist introduced the idea of natural selection?",
+        "choices": ["Albert Einstein", "Isaac Newton", "Charles Darwin", "Gregor Mendel"],
+        "correct": "Charles Darwin"
+    },
+    {
+        "question": "What is the largest island in the world?",
+        "choices": ["Greenland", "New Guinea", "Borneo", "Madagascar"],
+        "correct": "Greenland"
+    },
+    {
+        "question": "Which planet is known for its rings?",
+        "choices": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "correct": "Saturn"
+    },
+    {
+        "question": "Who painted the ceiling of the Sistine Chapel?",
+        "choices": ["Raphael", "Michelangelo", "Leonardo da Vinci", "Donatello"],
+        "correct": "Michelangelo"
+    },
+    {
+        "question": "Which is the longest bone in the human body?",
+        "choices": ["Humerus", "Femur", "Tibia", "Radius"],
+        "correct": "Femur"
+    },
+    {
+        "question": "What is the main ingredient in traditional Japanese miso soup?",
+        "choices": ["Tofu", "Seaweed", "Soybeans", "Rice"],
+        "correct": "Soybeans"
+    },
+    {
+        "question": "What is the tallest waterfall in the world?",
+        "choices": ["Niagara Falls", "Angel Falls", "Victoria Falls", "Iguazu Falls"],
+        "correct": "Angel Falls"
+    },
+    {
+        "question": "Who was the first woman to win a Nobel Prize?",
+        "choices": ["Marie Curie", "Jane Addams", "Dorothy Hodgkin", "Rosalind Franklin"],
+        "correct": "Marie Curie"
+    },
+    {
+        "question": "What is the most abundant gas in the Earth's atmosphere?",
+        "choices": ["Oxygen", "Hydrogen", "Nitrogen", "Carbon Dioxide"],
+        "correct": "Nitrogen"
+    },
+    {
+        "question": "Which country has the most natural lakes?",
+        "choices": ["Canada", "Russia", "United States", "Brazil"],
+        "correct": "Canada"
+    },
+    {
+        "question": "Which continent has the most countries?",
+        "choices": ["Africa", "Asia", "Europe", "South America"],
+        "correct": "Africa"
+    },
+    {
+        "question": "What is the largest internal organ in the human body?",
+        "choices": ["Heart", "Liver", "Kidney", "Lungs"],
+        "correct": "Liver"
+    },
+    {
+        "question": "Which ocean lies on the east coast of the United States?",
+        "choices": ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Southern Ocean"],
+        "correct": "Atlantic Ocean"
+    },
+    {
+        "question": "Who wrote the epic poem 'The Odyssey'?",
+        "choices": ["Homer", "Virgil", "Sophocles", "Aristotle"],
+        "correct": "Homer"
+    },
+    {
+        "question": "What is the smallest ocean in the world?",
+        "choices": ["Atlantic Ocean", "Indian Ocean", "Southern Ocean", "Arctic Ocean"],
+        "correct": "Arctic Ocean"
+    },
+    {
+        "question": "What is the capital of Germany?",
+        "choices": ["Berlin", "Munich", "Frankfurt", "Hamburg"],
+        "correct": "Berlin"
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere?",
+        "choices": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct": "Carbon Dioxide"
+    },
+    {
+        "question": "What is the smallest unit of matter?",
+        "choices": ["Atom", "Molecule", "Electron", "Neutron"],
+        "correct": "Atom"
+    },
+    {
+        "question": "Which element is known as the 'King of the Elements'?",
+        "choices": ["Gold", "Carbon", "Oxygen", "Iron"],
+        "correct": "Carbon"
+    },
+    {
+        "question": "Who is the lead singer of the rock band Queen?",
+        "choices": ["Freddie Mercury", "Mick Jagger", "Bono", "Robert Plant"],
+        "correct": "Freddie Mercury"
+    },
+    {
+        "question": "What is the capital city of Australia?",
+        "choices": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+        "correct": "Canberra"
+    },
+    {
+        "question": "Which scientist is known for the laws of motion?",
+        "choices": ["Albert Einstein", "Galileo Galilei", "Isaac Newton", "Niels Bohr"],
+        "correct": "Isaac Newton"
+    },
+    {
+        "question": "What is the largest country by land area?",
+        "choices": ["China", "United States", "Canada", "Russia"],
+        "correct": "Russia"
+    },
+    {
+        "question": "Which is the largest organ in the human body?",
+        "choices": ["Liver", "Brain", "Skin", "Heart"],
+        "correct": "Skin"
+    },
+    {
+        "question": "Who invented the World Wide Web?",
+        "choices": ["Bill Gates", "Steve Jobs", "Tim Berners-Lee", "Mark Zuckerberg"],
+        "correct": "Tim Berners-Lee"
+    },
+    {
+        "question": "Which country is known for the maple leaf?",
+        "choices": ["United States", "Canada", "United Kingdom", "Australia"],
+        "correct": "Canada"
+    },
+    {
+        "question": "What is the largest desert in the world?",
+        "choices": ["Sahara", "Gobi", "Arctic", "Antarctic"],
+        "correct": "Antarctic"
+    },
+    {
+        "question": "Which ancient civilization built the Machu Picchu complex in Peru?",
+        "choices": ["Aztec", "Maya", "Inca", "Olmec"],
+        "correct": "Inca"
+    },
+    {
+        "question": "What is the hardest rock?",
+        "choices": ["Marble", "Granite", "Quartzite", "Diamond"],
+        "correct": "Diamond"
+    },
+    {
+        "question": "What is the main gas found in the Earth's atmosphere?",
+        "choices": ["Oxygen", "Hydrogen", "Nitrogen", "Carbon Dioxide"],
+        "correct": "Nitrogen"
+    },
+    {
+        "question": "What is the capital of Italy?",
+        "choices": ["Venice", "Florence", "Rome", "Milan"],
+        "correct": "Rome"
+    },
+    {
+        "question": "Who wrote '1984'?",
+        "choices": ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Kurt Vonnegut"],
+        "correct": "George Orwell"
+    },
+    {
+        "question": "What is the square root of 64?",
+        "choices": ["6", "7", "8", "9"],
+        "correct": "8"
+    },
+    {
+        "question": "Which is the largest organ in the human body?",
+        "choices": ["Heart", "Liver", "Skin", "Lung"],
+        "correct": "Skin"
+    }
+]

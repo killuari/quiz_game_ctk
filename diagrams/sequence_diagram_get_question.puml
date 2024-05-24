@@ -1,0 +1,25 @@
+@startuml
+skin rose
+skinparam style strictuml
+
+participant Application
+participant QuestionFromServerFactory
+participant QuestionServer
+
+Application -> QuestionFromServerFactory: get_question(num):
+loop Retry up to three times
+    QuestionFromServerFactory -> QuestionServer: **GET** ""<base_url>/<api_key>/question?index=num""
+    alt success request
+        QuestionServer --> QuestionFromServerFactory: **200** ""{'question': '...'}""
+        QuestionFromServerFactory --> Application: Question('...')
+    else Return Code == 403
+            QuestionServer --> QuestionFromServerFactory: **403** ""Forbidden: Invalid API Key""
+            QuestionFromServerFactory --> Application: None
+    else Other Error Code
+        QuestionServer --> QuestionFromServerFactory: **Other return code**
+    end
+end
+alt All requests failed
+    QuestionFromServerFactory --> Application: None
+end
+@enduml

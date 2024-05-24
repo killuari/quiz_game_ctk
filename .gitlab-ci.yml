@@ -1,0 +1,24 @@
+image: python:3.10.14-alpine3.19
+
+stages:
+  - test
+
+test-job:
+  stage: test
+  before_script:
+    - pip install -r requirements.txt
+  script:
+    - pytest --junitxml=report.xml
+    - coverage run --source=src -m pytest
+    - coverage report
+    - coverage xml -o cov.xml
+  coverage: '/\d+\%\s*$/'
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+      coverage_report: 
+        coverage_format: cobertura
+        path: cov.xml
+  except:
+    - tests_name

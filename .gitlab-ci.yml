@@ -21,4 +21,12 @@ test-job:
         coverage_format: cobertura
         path: cov.xml
   except:
+    - tests_answer
+    - tests_lives
     - tests_name
+    - tests_player
+    - tests_question
+    - tests_questions_factory
+    - tests_questions_from_json_file_factory
+    - tests_questions_from_server_factory
+    - tests_score

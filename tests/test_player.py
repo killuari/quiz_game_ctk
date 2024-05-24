@@ -20,7 +20,7 @@ def test_lives_returns_type_lives(player):
     assert returned_type == expected_type, f"Expected return type {expected_type}, but got {returned_type}."
 
 def test_lives_returns_member_object(player):
-    expected_object = player._PLAYER__lives
+    expected_object = player._Player__lives
     returned_object = player.lives()
     assert returned_object == expected_object, f"Function lives() is not returning the member object `lives`"
 
@@ -30,7 +30,7 @@ def test_score_returns_type_score(player):
     assert returned_type == expected_type, f"Expected return type {expected_type}, but got {returned_type}."
 
 def test_score_returns_member_object(player):
-    expected_object = player._PLAYER__score
+    expected_object = player._Player__score
     returned_object = player.score()
     assert returned_object == expected_object, f"Function score() is not returning the member object `score`"
 
@@ -40,7 +40,7 @@ def test_name_returns_type_name(player):
     assert returned_type == expected_type, f"Expected return type {expected_type}, but got {returned_type}."
 
 def test_name_returns_member_object(player):
-    expected_object = player._PLAYER__name
+    expected_object = player._Player__name
     returned_object = player.name()
     assert returned_object == expected_object, f"Function name() is not returning the member object `name`"
 

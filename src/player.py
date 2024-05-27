@@ -12,11 +12,11 @@ class Player():
         self.__score.reset()
         self.__lives.reset()
 
-    def lives(self):
+    def lives(self) -> Lives:
         return self.__lives
     
-    def score(self):
+    def score(self) -> Score:
         return self.__score
     
-    def name(self):
+    def name(self) -> Name:
         return self.__name

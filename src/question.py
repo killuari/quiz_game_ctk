@@ -10,6 +10,12 @@ class Question():
             self.__answers.append(Answer(answer_text, answer_text == correct_answer_text))
         self.shuffle_answers()
 
-    def shuffle_answers(self) -> list[Answer]:
+    def shuffle_answers(self):
         random.shuffle(self.__answers)
+
+    def get_question_text(self) -> str:
+        return self.__question_text
+    
+    def get_answers(self):
+        return self.__answers
     

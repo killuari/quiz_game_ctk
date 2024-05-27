@@ -46,7 +46,7 @@ def main():
     # Class Answer
     print("\nClass Answer")
     answer = Answer("42", True)
-    print(f"Is correct: {answer.is_correct()}")
+    print(f"Is the answer {answer} correct? {'Yes!' if answer.is_correct() else 'No :('}")
 
 if __name__ == "__main__":
     main()

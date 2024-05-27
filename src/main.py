@@ -1,6 +1,7 @@
 from name import Name
 from score import Score
 from lives import Lives
+from player import Player
 
 def main():
     print("Hello, Quiz King!")
@@ -30,6 +31,16 @@ def main():
     print(lives.get())
     print(lives.is_game_over())
 
+    # Class Player
+    print("\nClass Player")
+    player = Player("Peter")
+    print(f"Name: {player.name()}")
+    print(f"Amount of Lives: {player.lives().get()}")
+    print(f"Current Score of {player.name()}: {player.score().get()}")
+    player.score().add(5)
+    print(f"Current Score of {player.name()}: {player.score().get()}")
+    player.reset()
+    print(f"Current Score of {player.name()}: {player.score().get()}")
 
 if __name__ == "__main__":
     main()

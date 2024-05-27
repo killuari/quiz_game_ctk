@@ -3,3 +3,5 @@ PyYAML
 Requests
 pytest
 coverage
+respones
+requests-mock

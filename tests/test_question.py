@@ -37,7 +37,7 @@ def test_not_correct_answers_are_not_correct(question):
 @patch("random.shuffle")
 def test_question_init_shuffles_answers(mock_shuffle):
     question = Question(question_string, answer_strings, correct_answer)
-    mock_shuffle.assert_called_with(question.answers)
+    mock_shuffle.assert_called_with(question._Question__answers)
 
 def test_str_question(question):
     expected = f"Question: {question_string}\n"

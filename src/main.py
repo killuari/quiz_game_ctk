@@ -3,6 +3,7 @@ from score import Score
 from lives import Lives
 from player import Player
 from answer import Answer
+from question import Question
 
 def main():
     print("Hello, Quiz King!")
@@ -48,8 +49,13 @@ def main():
     answer = Answer("42", True)
     print(f"Is the answer {answer} correct? {'Yes!' if answer.is_correct() else 'No :('}")
 
-    # Class Answer
-    print("\nClass Answer")
+    # Class Question
+    print("\nClass Question")
+    question = Question("What is the capital of France?", ["Berlin", "Madrid", "Paris", "Rome"], "Paris")
+    print(question)
+    # Shuffled?
+    question = Question("What is the capital of France?", ["Berlin", "Madrid", "Paris", "Rome"], "Paris")
+    print(question)
 
 if __name__ == "__main__":
     main()

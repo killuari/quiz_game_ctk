@@ -22,9 +22,9 @@ class Question():
     def __str__(self) -> str:
         alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-        question_print = f"Question: {self.get_question_text()}"
+        question_print = f"Question: {self.get_question_text()}\n"
         for idx, answer in enumerate(self.get_answers()):
-            question_print += f"\n{alphabet[idx]}) {answer}"
+            question_print += f"{alphabet[idx]}) {answer}\n"
 
         return question_print
 

@@ -1,5 +1,5 @@
 class Name():
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.__name = name
 
     def __str__(self):

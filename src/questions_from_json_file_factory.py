@@ -1,8 +1,9 @@
 import json
 import random
 from question import Question
+from questions_factory import QuestionsFactory
 
-class QuestionsFromJsonFileFactory():
+class QuestionsFromJsonFileFactory(QuestionsFactory):
     def __init__(self, path_to_file: str):
         self.__questions : list[Question] = self.__load_questions(path_to_file)
         random.shuffle(self.__questions)
@@ -14,7 +15,7 @@ class QuestionsFromJsonFileFactory():
             with open(path_to_file) as file:
                 questions_data = json.load(file)
                 for data in questions_data:
-                    questions.append(Question(data['question'], data['choices'], data['correct']))
+                    questions.append(self._json_to_question(data))
         except FileNotFoundError as e:
             print("File not found!")
 

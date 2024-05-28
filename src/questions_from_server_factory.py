@@ -1,7 +1,8 @@
 import requests
 from question import Question
+from questions_factory import QuestionsFactory
 
-class QuestionsFromServerFactory():
+class QuestionsFromServerFactory(QuestionsFactory):
     def __init__(self, base_url: str, api_key: str):
         self.__base_url = base_url
         self.__api_key = api_key
@@ -20,7 +21,7 @@ class QuestionsFromServerFactory():
             response = requests.get(f"{self.__base_url}/{self.__api_key}/question?index={index}")
             if response.status_code == 200:
                 question_data = response.json()
-                return Question(question_data['question'], question_data['choices'], question_data['correct'])
+                return self._json_to_question(question_data)
             elif response.status_code == 403:
                 return None
         return None

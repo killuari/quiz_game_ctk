@@ -42,6 +42,10 @@ interface QuestionsFactory {
     # json_to_question(json: dictionary): Question
 }
 
+class TextBasedGame {
+    
+}
+
 Question "1" *--> "2..4" Answer
 QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
 QuestionsFromServerFactory --> Question

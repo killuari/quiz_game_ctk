@@ -18,6 +18,7 @@ class TextBasedGame():
             current_question = self.get_question(current_question_idx)
             print(current_question)
             player_answer = input("Please, choose either ['a', 'b', 'c', 'd']: ")
+
             if current_question.get_answers()["abcd".find(player_answer)].is_correct():
                 print("\nCorrect!")
                 player.score().add(100)
@@ -27,6 +28,9 @@ class TextBasedGame():
                 print("\nIncorrect!")
                 player.lives().loose_a_life()
                 print(f"Remaining lives: {player.lives().get()}\n")
+
+            if current_question_idx >= self.get_total_number_of_questions():
+                current_question_idx = 0
 
         print(f"{player.name()}, you have achieved {player.score().get()} points")
 

@@ -36,7 +36,16 @@ class QuestionsFromServerFactory {
     + get_question(index: int): Question
 }
 
+interface QuestionsFactory {
+    + {abstract} get_total_number_of_questions(): int
+    + {abstract} get_question(): Question
+    # json_to_question(json: dictionary): Question
+}
+
 Question "1" *--> "2..4" Answer
 QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
 QuestionsFromServerFactory --> Question
+QuestionsFromServerFactory --|> QuestionsFactory
+QuestionsFromJsonFileFactory --|> QuestionsFactory
+
 @enduml

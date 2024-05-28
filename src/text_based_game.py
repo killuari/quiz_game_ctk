@@ -7,14 +7,15 @@ class TextBasedGame():
     def __init__(self):
         self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
-
-    def run(self):
+        
         name = input("Please, enter your name: ")
-        player = Player(name)
-        print(f"Welcome {player.name()}!")
+        self.__player = Player(name)
+        print(f"Welcome {self.__player.name()}!")
+    
+    def run(self):
         current_question_idx = 0
 
-        while not player.lives().is_game_over():
+        while not self.__player.lives().is_game_over():
             current_question = self.__get_question(current_question_idx)
             print(current_question)
 
@@ -24,18 +25,18 @@ class TextBasedGame():
 
             if current_question.get_answers()["abcd".find(player_answer)].is_correct():
                 print("\nCorrect!")
-                player.score().add(100)
-                print(f"Your score is {player.score().get()}\n")
+                self.__player.score().add(100)
+                print(f"Your score is {self.__player.score().get()}\n")
                 current_question_idx += 1
             else:
                 print("\nIncorrect!")
-                player.lives().loose_a_life()
-                print(f"Remaining lives: {player.lives().get()}\n")
+                self.__player.lives().loose_a_life()
+                print(f"Remaining lives: {self.__player.lives().get()}\n")
 
             if current_question_idx >= self.__get_total_number_of_questions():
                 current_question_idx = 0
 
-        print(f"{player.name()}, you have achieved {player.score().get()} points")
+        print(f"{self.__player.name()}, you have achieved {self.__player.score().get()} points")
 
 
     def __get_question(self, index: int) -> Question:

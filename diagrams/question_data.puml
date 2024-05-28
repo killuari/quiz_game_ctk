@@ -45,6 +45,7 @@ interface QuestionsFactory {
 class TextBasedGame {
     - questions_from_file: QuestionsFromJsonFileFactory
     - questions_from_server: QuestionsFromServerFactory
+    - player: Player
     + __init__()
     + run(): None
     - get_total_number_of_questions(): int

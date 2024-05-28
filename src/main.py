@@ -69,6 +69,9 @@ def main():
     print("\nClass QuestionsFromServerFactory")
     questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
     print(f"Number of Questions: {questions_from_server.get_total_number_of_questions()}")
+    print(f"--Question 5--\n{questions_from_server.get_question(5)}")
+    print(f"--Question 42--\n{questions_from_server.get_question(42)}")
+
 
 if __name__ == "__main__":
     main()

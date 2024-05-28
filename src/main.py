@@ -4,6 +4,7 @@ from lives import Lives
 from player import Player
 from answer import Answer
 from question import Question
+from questions_from_json_file_factory import QuestionsFromJsonFileFactory
 
 def main():
     print("Hello, Quiz King!")
@@ -56,6 +57,9 @@ def main():
     # Shuffled?
     question = Question("What is the capital of France?", ["Berlin", "Madrid", "Paris", "Rome"], "Paris")
     print(question)
+
+    # Class QuestionsFromJsonFileFactory
+    print("\nClass QuestionsFromJsonFileFactory")
 
 if __name__ == "__main__":
     main()

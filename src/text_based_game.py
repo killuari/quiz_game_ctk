@@ -12,9 +12,24 @@ class TextBasedGame():
         name = input("Please, enter your name: ")
         player = Player(name)
         print(f"Welcome {player.name()}!")
+        current_question_idx = 0
 
-        if not player.lives().is_game_over():
-            pass
+        while not player.lives().is_game_over():
+            current_question = self.get_question(current_question_idx)
+            print(current_question)
+            player_answer = input("Please, choose either ['a', 'b', 'c', 'd']: ")
+            if current_question.get_answers()["abcd".find(player_answer)].is_correct():
+                print("\nCorrect!")
+                player.score().add(100)
+                print(f"Your score is {player.score().get()}\n")
+                current_question_idx += 1
+            else:
+                print("\nIncorrect!")
+                player.lives().loose_a_life()
+                print(f"Remaining lives: {player.lives().get()}\n")
+
+        print(f"{player.name()}, you have achieved {player.score().get()} points")
+
 
     def get_question(self, index: int) -> Question:
         question_from_server = self.questions_from_server.get_question(index)

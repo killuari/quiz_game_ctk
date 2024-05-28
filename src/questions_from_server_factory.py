@@ -6,5 +6,11 @@ class QuestionsFromServerFactory():
         self.__api_key = api_key
 
     def get_total_number_of_questions(self) -> int:
-        response = requests.get(f"{self.__base_url}/{self.__api_key}/question_count")
-        return response.json()['count']
+        for i in range(3):
+            response = requests.get(f"{self.__base_url}/{self.__api_key}/question_count")
+            if response.status_code == 200:
+                return response.json()['count']
+            elif response.status_code == 403:
+                return 0
+        return 0
+    

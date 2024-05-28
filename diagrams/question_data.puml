@@ -38,7 +38,7 @@ class QuestionsFromServerFactory {
 
 interface QuestionsFactory {
     + {abstract} get_total_number_of_questions(): int
-    + {abstract} get_question(): Question
+    + {abstract} get_question(index: int): Question
     # json_to_question(json: dictionary): Question
 }
 

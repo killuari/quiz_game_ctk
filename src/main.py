@@ -5,6 +5,7 @@ from player import Player
 from answer import Answer
 from question import Question
 from questions_from_json_file_factory import QuestionsFromJsonFileFactory
+from questions_from_server_factory import QuestionsFromServerFactory
 
 def main():
     print("Hello, Quiz King!")
@@ -63,6 +64,11 @@ def main():
     questions_from_json = QuestionsFromJsonFileFactory("assets/questions.json")
     print(f"Number of questions: {questions_from_json.get_total_number_of_questions()}")
     print(f"--Question 5--\n{questions_from_json.get_question(5)}")
+
+    # Class QuestionsFromServerFactory
+    print("\nClass QuestionsFromServerFactory")
+    questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
+    print(f"Number of Questions: {questions_from_server.get_total_number_of_questions()}")
 
 if __name__ == "__main__":
     main()

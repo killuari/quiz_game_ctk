@@ -42,10 +42,23 @@ interface QuestionsFactory {
     # json_to_question(json: dictionary): Question
 }
 
+class TextBasedGame {
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - player: Player
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+
+}
+
 Question "1" *--> "2..4" Answer
 QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
 QuestionsFromServerFactory --> Question
 QuestionsFromServerFactory --|> QuestionsFactory
 QuestionsFromJsonFileFactory --|> QuestionsFactory
+TextBasedGame "1" *--> "1" QuestionsFromJsonFileFactory
+TextBasedGame "1" *--> "1" QuestionsFromServerFactory
 
 @enduml

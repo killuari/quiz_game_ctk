@@ -10,10 +10,13 @@ class QuestionsFromJsonFileFactory():
     def __load_questions(self, path_to_file: str) -> list[Question]:
         questions : list[Question] = []
 
-        with open(path_to_file) as file:
-            questions_data = json.load(file)
-            for data in questions_data:
-                questions.append(Question(data['question'], data['choices'], data['correct']))
+        try:
+            with open(path_to_file) as file:
+                questions_data = json.load(file)
+                for data in questions_data:
+                    questions.append(Question(data['question'], data['choices'], data['correct']))
+        except FileNotFoundError as e:
+            print("File not found!")
 
         return questions
     

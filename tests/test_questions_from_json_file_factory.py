@@ -51,7 +51,7 @@ def test_file_not_found():
     with patch('builtins.open', side_effect=FileNotFoundError):
         factory = QuestionsFromJsonFileFactory('path/to/nonexistent/file')
         assert factory is not None
-        assert len(factory.questions) == 0
+        assert len(factory._QuestionsFromJsonFileFactory__questions) == 0
 
 @patch('random.shuffle', no_op_shuffle)
 def test_get_total_number_of_questions():

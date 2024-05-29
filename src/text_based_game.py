@@ -1,5 +1,6 @@
 from player import Player
 from question import Question
+from highscore import Highscore
 from questions_from_json_file_factory import QuestionsFromJsonFileFactory
 from questions_from_server_factory import QuestionsFromServerFactory
 
@@ -7,6 +8,7 @@ class TextBasedGame():
     def __init__(self):
         self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_variying_answers.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
+        self.__highscore = Highscore("assets/highscore.json")
 
         # Connect to Server
         self.__connected_to_server = True
@@ -49,6 +51,8 @@ class TextBasedGame():
                 current_question_idx = 0
 
         print(f"{self.__player.name()}, you have achieved {self.__player.score().get()} points")
+
+        self.__highscore.update(self.__player.score())
 
 
     def __get_question(self, index: int) -> Question:

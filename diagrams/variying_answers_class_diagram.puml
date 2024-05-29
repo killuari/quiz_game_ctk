@@ -14,34 +14,6 @@ class Question {
     + __str__(): String
 }
 
-class Answer {
-    - answer_text: String
-    - is_correct_answer: boolean
-    + is_correct(): boolean
-    + __str__(): String
-}
-
-class QuestionsFromJsonFileFactory {
-    - questions: Question[]
-    + __init__(path_to_file: String)
-    - load_questions(path_to_file: String): Question[]
-    + get_total_number_of_questions(): int
-    + get_question(index: int): Question
-}
-
-class QuestionsFromServerFactory {
-    - api_key: String
-    - base_url: String
-    + __init__(base_url: String, api_key: String)
-    + get_total_number_of_questions(): int
-    + get_question(index: int): Question
-}
-
-interface QuestionsFactory {
-    + {abstract} get_total_number_of_questions(): int
-    + {abstract} get_question(index: int): Question
-    # json_to_question(json: dictionary): Question
-}
 
 class TextBasedGame {
     - questions_from_file: QuestionsFromJsonFileFactory

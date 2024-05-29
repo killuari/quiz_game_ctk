@@ -45,6 +45,7 @@ interface QuestionsFactory {
 class TextBasedGame {
     - questions_from_file: QuestionsFromJsonFileFactory
     - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
     - player: Player
     + __init__()
     + run(): None

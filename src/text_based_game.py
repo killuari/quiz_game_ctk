@@ -50,9 +50,10 @@ class TextBasedGame():
             if current_question_idx >= self.__get_total_number_of_questions():
                 current_question_idx = 0
 
-        print(f"{self.__player.name()}, you have achieved {self.__player.score().get()} points")
+        print(f"{self.__player.name()}, you have achieved {self.__player.score().get()} points!")
 
         self.__highscore.update(self.__player.score())
+        print(f"\n{self.__highscore}")
 
 
     def __get_question(self, index: int) -> Question:

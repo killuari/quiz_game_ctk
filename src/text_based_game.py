@@ -5,7 +5,7 @@ from questions_from_server_factory import QuestionsFromServerFactory
 
 class TextBasedGame():
     def __init__(self):
-        self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions.json")
+        self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_variying_answers.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
 
         # Connect to Server
@@ -32,10 +32,10 @@ class TextBasedGame():
             print(current_question)
 
             player_answer = ""
-            while player_answer not in ['a', 'b', 'c', 'd']:
-                player_answer = input("Please, choose either ['a', 'b', 'c', 'd']: ")
+            while player_answer not in current_question.get_options():
+                player_answer = input(f"Please, choose either {current_question.get_options()}: ")
 
-            if current_question.get_answers()["abcd".find(player_answer)].is_correct():
+            if current_question.get_answers()[current_question.get_options().index(player_answer)].is_correct():
                 print("\nCorrect!")
                 self.__player.score().add(100)
                 print(f"Your score is {self.__player.score().get()}\n")

@@ -1,0 +1,222 @@
+[
+    {
+        "question": "What does 'SQL' stand for?",
+        "choices": ["Structured Question Language", "Structured Query Language", "Simplified Query Language"],
+        "correct": "Structured Query Language"
+    },
+    {
+        "question": "What is the main function of the ALU within a CPU?",
+        "choices": ["Execute arithmetic and logic operations", "Store data and instructions"],
+        "correct": "Execute arithmetic and logic operations"
+    },
+    {
+        "question": "Which programming language is known for its use in web development and its ease of integration with HTML?",
+        "choices": ["Java", "C++", "JavaScript", "Python"],
+        "correct": "JavaScript"
+    },
+    {
+        "question": "What is the main purpose of the 'git' version control system?",
+        "choices": [
+            "To compile programs",
+            "To manage and track changes in source code",
+            "To encrypt files",
+            "To simulate network traffic"
+        ],
+        "correct": "To manage and track changes in source code"
+    },
+    {
+        "question": "Which company originally developed the C programming language?",
+        "choices": ["Microsoft", "Sun Microsystems", "Bell Labs", "IBM", "Adobe"],
+        "correct": "Bell Labs"
+    },
+    {
+        "question": "What is the value of the binary number 1010 in decimal?",
+        "choices": ["10", "12"],
+        "correct": "10"
+    },
+    {
+        "question": "What is the concept of 'inheritance' most associated with?",
+        "choices": ["Functional programming", "Object-oriented programming", "Procedural programming"],
+        "correct": "Object-oriented programming"
+    },
+    {
+        "question": "What is the output of the following code snippet in Python?\n```python\nprint('Hello ' + 'World')```",
+        "choices": ["'Hello + World'", "Hello World", "'Hello World'", "Hello + World"],
+        "correct": "Hello World"
+    },
+    {
+        "question": "Which algorithm is used to find the shortest path from a single source node to all other nodes in a weighted graph?",
+        "choices": ["Dijkstra's algorithm", "Kruskal's algorithm", "Prim's algorithm", "Depth-first search"],
+        "correct": "Dijkstra's algorithm"
+    },
+    {
+        "question": "Which HTTP method is used to send data to a server to create/update a resource?",
+        "choices": ["GET", "POST", "DELETE", "PUT", "PATCH"],
+        "correct": "POST"
+    },
+    {
+        "question": "What design pattern ensures a class has only one instance and provides a global point of access to it?",
+        "choices": ["Observer pattern", "Factory pattern", "Singleton pattern", "Adapter pattern", "Template pattern", "Strategy pattern"],
+        "correct": "Singleton pattern"
+    },
+    {
+        "question": "What file extension is commonly used for Java bytecode files?",
+        "choices": [".java", ".class"],
+        "correct": ".class"
+    },
+    {
+        "question": "What is the primary function of a DNS server?",
+        "choices": ["To translate domain names to IP addresses", "To forward email to the correct server", "To serve web pages"],
+        "correct": "To translate domain names to IP addresses"
+    },
+    {
+        "question": "What is an example of a high-level programming language?",
+        "choices": ["Assembly language", "Machine language", "Python"],
+        "correct": "Python"
+    },
+    {
+        "question": "What is the main purpose of 'cookies' in web browsers?",
+        "choices": [
+            "To store user preferences and session information",
+            "To enhance graphics performance",
+            "To execute client-side scripts",
+            "To check browser compatibility"
+        ],
+        "correct": "To store user preferences and session information"
+    },
+    {
+        "question": "Which is a valid IPv6 address?",
+        "choices": ["192.168.1.1", "1200:0000:AB00:1234:0000:2552:7777:1313", "FE80::0202:B3FF:FE1E:8329", "1200::AB00:1234::2552:7777:1313", "::1", "FE80:0000:0000:0000:0202:B3FF:FE1E:8329"],
+        "correct": "FE80::0202:B3FF:FE1E:8329"
+    },
+    {
+        "question": "Which of the following is a dynamic type, high-level, interpreted programming language?",
+        "choices": ["C", "Python"],
+        "correct": "Python"
+    },
+    {
+        "question": "What is the main characteristic of a stack data structure?",
+        "choices": ["First In First Out (FIFO)", "First In Last Out (FILO)", "Last In First Out (LIFO)"],
+        "correct": "Last In First Out (LIFO)"
+    },
+    {
+        "question": "In the context of web development, what does CSS stand for?",
+        "choices": ["Cascading Style Sheets", "Cascading Style Scripts", "Creative Style Sheets"],
+        "correct": "Cascading Style Sheets"
+    },
+    {
+        "question": "What is the output of `5 % 2` in most programming languages?",
+        "choices": ["5", "2", "1", "0", "3", "4"],
+        "correct": "1"
+    },
+    {
+        "question": "Which protocol is primarily used for secure communication over a computer network?",
+        "choices": ["HTTP", "HTTPS", "FTP", "SMTP"],
+        "correct": "HTTPS"
+    },
+    {
+        "question": "What component of a computer system allows other devices to communicate with each other?",
+        "choices": ["CPU", "RAM", "Motherboard", "GPU", "Power Supply"],
+        "correct": "Motherboard"
+    },
+    {
+        "question": "In Python, what is the primary difference between a list and a tuple?",
+        "choices": ["A list is immutable, a tuple is mutable", "A list is mutable, a tuple is immutable"],
+        "correct": "A list is mutable, a tuple is immutable"
+    },
+    {
+        "question": "Which of the following best describes 'polymorphism' in Object-Oriented Programming?",
+        "choices": ["The ability of different objects to respond in a unique way to the same method call", "The ability to define multiple classes with the same name", "The ability to use many inheritance at once"],
+        "correct": "The ability of different objects to respond in a unique way to the same method call"
+    },
+    {
+        "question": "What is the time complexity of bubble sort in the average case scenario?",
+        "choices": ["O(n)", "O(log n)", "O(n log n)", "O(n^2)"],
+        "correct": "O(n^2)"
+    },
+    {
+        "question": "In which data structure are elements added and removed from the same end?",
+        "choices": ["Queue", "Stack"],
+        "correct": "Stack"
+    },
+    {
+        "question": "Which of these is not a Java keyword?",
+        "choices": ["static", "private", "this", "null"],
+        "correct": "null"
+    },
+    {
+        "question": "In computer networks, what does 'LAN' stand for?",
+        "choices": ["Local Area Network", "Large Area Network", "Limited Area Network"],
+        "correct": "Local Area Network"
+    },
+    {
+        "question": "Which HTML tag is used to create a hyperlink?",
+        "choices": ["<link>", "<a>", "<hyperlink>"],
+        "correct": "<a>"
+    },
+    {
+        "question": "Which of these represents the 'iteration' in software development?",
+        "choices": ["Waterfall model", "Agile model", "Spiral model", "V-model", "Big Bang model"],
+        "correct": "Agile model"
+    },
+    {
+        "question": "Which layer of the OSI model is responsible for virtual circuits?",
+        "choices": ["Application Layer", "Physical Layer", "Transport Layer", "Presentation Layer", "Session Layer"],
+        "correct": "Transport Layer"
+    },
+    {
+        "question": "Which of the following is an example of a relational database management system (RDBMS)?",
+        "choices": ["MongoDB", "Microsoft SQL Server", "Apache Cassandra"],
+        "correct": "Microsoft SQL Server"
+    },
+    {
+        "question": "What is the default value of a Boolean variable in Java?",
+        "choices": ["true", "false"],
+        "correct": "false"
+    },
+    {
+        "question": "Which of these is NOT an example of a programming paradigm?",
+        "choices": ["Object-oriented", "Procedural", "Functional", "Constructive"],
+        "correct": "Constructive"
+    },
+    {
+        "question": "Which tool is commonly used for continuous integration and continuous deployment (CI/CD)?",
+        "choices": ["Jenkins", "SDL", "Photoshop", "Blender"],
+        "correct": "Jenkins"
+    },
+    {
+        "question": "In Python, which keyword is used to start a function definition?",
+        "choices": ["func", "def"],
+        "correct": "def"
+    },
+    {
+        "question": "Which sorting algorithm usually performs the fastest on random lists?",
+        "choices": ["Bubble sort", "Insertion sort", "Quick sort"],
+        "correct": "Quick sort"
+    },
+    {
+        "question": "What is the purpose of the 'foreign key' in a relational database?",
+        "choices": ["To uniquely identify a row in a table", "To establish a link between the data in two tables", "To store binary data"],
+        "correct": "To establish a link between the data in two tables"
+    },
+    {
+        "question": "Which of the following is a type of SQL injection attack method?",
+        "choices": ["Error-based", "Time-based", "Union-based", "Boolean-based", "Dump-based"],
+        "correct": "Union-based"
+    },
+    {
+        "question": "What does the term 'IDE' stand for in software development?",
+        "choices": ["Integrated Development Environment", "Internal Data Exchange"],
+        "correct": "Integrated Development Environment"
+    },
+    {
+        "question": "Which language is known as the 'mother of all languages' in programming?",
+        "choices": ["B", "FORTRAN", "Pascal", "Assembly"],
+        "correct": "Assembly"
+    },
+    {
+        "question": "Which of the following is used to design user interfaces in Android development?",
+        "choices": ["HTML", "XML", "CSS"],
+        "correct": "XML"
+    }
+]

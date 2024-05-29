@@ -1,0 +1,38 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class Question {
+    - answers: Answer[]
+    - question_text: String
+    + __init__(question_text: String, answer_texts: String[], correct_answer_text: String)
+    + get_question_text(): String
+    + get_answers(): Answer[]
+    + shuffle_answers(): None
+    + get_options(): String[]
+    + __str__(): String
+}
+
+
+class TextBasedGame {
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+
+}
+
+Question "1" *--> "2..4" Answer
+QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
+QuestionsFromServerFactory --> Question
+QuestionsFromServerFactory --|> QuestionsFactory
+QuestionsFromJsonFileFactory --|> QuestionsFactory
+TextBasedGame "1" *--> "1" QuestionsFromJsonFileFactory
+TextBasedGame "1" *--> "1" QuestionsFromServerFactory
+
+@enduml

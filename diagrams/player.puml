@@ -25,7 +25,6 @@ class Lives {
 
 class Score {
     - score: int
-    + reset()
     + __init__()
     + add(score: int): int
     + get(): int

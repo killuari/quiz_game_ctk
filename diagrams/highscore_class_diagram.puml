@@ -1,0 +1,39 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class Highscore {
+    - highscore_data: int[]
+    - path_to_file: String
+    - new_highscore_idx: int
+    + __init__(path_to_file: str)
+    + update(score: Score): None
+    + __str__(): String
+}
+
+class Score {
+    - score: int
+    + __init__()
+    + add(score: int): int
+    + get(): int
+    + reset(): None
+}
+
+class TextBasedGame {
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    - highscore: Highscore
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+
+}
+
+Highscore --> Score
+TextBasedGame "1" *--> "1" Highscore
+
+@enduml

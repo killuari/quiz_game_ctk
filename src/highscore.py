@@ -3,7 +3,7 @@ from score import Score
 
 class Highscore():
     def __init__(self, path_to_file: str):
-        self.__highscore_data : list = []
+        self.__highscore_data : list[int] = []
         self.__path_to_file : str = path_to_file
         self.__new_highscore_idx : int = -1
         try:

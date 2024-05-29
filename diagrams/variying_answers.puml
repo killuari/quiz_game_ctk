@@ -1,0 +1,66 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class Question {
+    - answers: Answer[]
+    - question_text: String
+    + __init__(question_text: String, answer_texts: String[], correct_answer_text: String)
+    + get_question_text(): String
+    + get_answers(): Answer[]
+    + shuffle_answers(): None
+    + get_options(): String[]
+    + __str__(): String
+}
+
+class Answer {
+    - answer_text: String
+    - is_correct_answer: boolean
+    + is_correct(): boolean
+    + __str__(): String
+}
+
+class QuestionsFromJsonFileFactory {
+    - questions: Question[]
+    + __init__(path_to_file: String)
+    - load_questions(path_to_file: String): Question[]
+    + get_total_number_of_questions(): int
+    + get_question(index: int): Question
+}
+
+class QuestionsFromServerFactory {
+    - api_key: String
+    - base_url: String
+    + __init__(base_url: String, api_key: String)
+    + get_total_number_of_questions(): int
+    + get_question(index: int): Question
+}
+
+interface QuestionsFactory {
+    + {abstract} get_total_number_of_questions(): int
+    + {abstract} get_question(index: int): Question
+    # json_to_question(json: dictionary): Question
+}
+
+class TextBasedGame {
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+
+}
+
+Question "1" *--> "2..4" Answer
+QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
+QuestionsFromServerFactory --> Question
+QuestionsFromServerFactory --|> QuestionsFactory
+QuestionsFromJsonFileFactory --|> QuestionsFactory
+TextBasedGame "1" *--> "1" QuestionsFromJsonFileFactory
+TextBasedGame "1" *--> "1" QuestionsFromServerFactory
+
+@enduml

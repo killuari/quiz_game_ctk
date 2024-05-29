@@ -3,7 +3,7 @@ import json
 
 app = Flask(__name__)
 
-with open('assets/questions.json', 'r') as f:
+with open('assets/questions_with_variying_answers.json', 'r') as f:
     questions = json.load(f)
 
 API_KEY = "abcd1234"

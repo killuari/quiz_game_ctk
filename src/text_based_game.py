@@ -18,7 +18,7 @@ class TextBasedGame():
             if num == 0:
                 self.__connected_to_server = False
 
-        print(self.__connected_to_server)
+        print(f"Connected to Server: {self.__connected_to_server}\n")
         
         name = input("Please, enter your name: ")
         self.__player = Player(name)

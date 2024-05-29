@@ -19,12 +19,13 @@ class Question():
     def get_answers(self) -> list[Answer]:
         return self.__answers
     
+    def get_options(self) -> list[str]:
+        return [chr(ord('a') + idx) for idx in range(len(self.get_answers()))]
+    
     def __str__(self) -> str:
-        alphabet = "abcdefghijklmnopqrstuvwxyz"
-
         question_print = f"Question: {self.get_question_text()}\n"
         for idx, answer in enumerate(self.get_answers()):
-            question_print += f"{alphabet[idx]}) {answer}\n"
+            question_print += f"{self.get_options()[idx]}) {answer}\n"
 
         return question_print
 

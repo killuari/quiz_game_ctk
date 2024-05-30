@@ -5,10 +5,12 @@ from questions_from_json_file_factory import QuestionsFromJsonFileFactory
 from questions_from_server_factory import QuestionsFromServerFactory
 
 class TextBasedGame():
-    def __init__(self):
+    def __init__(self, player: Player, highscore: Highscore):
         self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_variying_answers.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
-        self.__highscore = Highscore("assets/highscore.json")
+        self.__player = player
+        self.__highscore = highscore
+
 
         # Connect to Server
         self.__connected_to_server = True
@@ -21,10 +23,6 @@ class TextBasedGame():
                 self.__connected_to_server = False
 
         print(f"Connected to Server: {self.__connected_to_server}\n")
-        
-        name = input("Please, enter your name: ")
-        self.__player = Player(name)
-        print(f"Welcome {self.__player.name()}!")
     
     def run(self):
         current_question_idx = 0
@@ -54,7 +52,6 @@ class TextBasedGame():
 
         self.__highscore.update(self.__player.score())
         print(f"\n{self.__highscore}")
-
 
     def __get_question(self, index: int) -> Question:
         if self.__connected_to_server:

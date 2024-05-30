@@ -1,0 +1,24 @@
+```plantuml
+@startuml
+
+start
+
+:Create Menu;
+:Run Menu;
+while (not quit) is (True)
+  :Print menu;
+  while (wrong input / no input) is (True)
+    :Ask player for input;
+  endwhile (False)
+    if (input) equals (a) then
+        :Run TextBasedGame;
+    elseif (input) equals (b) then
+        :Display Highscore;
+    else (c)
+        :quit;
+    endif
+endwhile (False)
+:Exit game;
+end
+@enduml
+```

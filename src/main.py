@@ -1,8 +1,8 @@
-from text_based_game import TextBasedGame
+from menu import Menu
 
 def main():
-    text_based_game = TextBasedGame()
-    text_based_game.run()
+    menu = Menu()
+    menu.run()
 
 if __name__ == "__main__":
     main()

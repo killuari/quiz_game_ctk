@@ -1,0 +1,60 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class Menu {
+    - options: String[]
+    - player: Player
+    - highscore: Highscore
+    - game: TextBasedGame
+    + __init__()
+    + __str__(): String
+    - play(): None
+    - view_highscore(): None
+    - exit_game(): None
+    - get_input(): None
+    + run(): None
+
+}
+
+class TextBasedGame {
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    - highscore: Highscore
+    + __init__(player: Player, highscore: Highscore)
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+
+}
+
+class Player {
+    + __init__(name)
+    + reset(): None
+    + score(): Score
+    + lives(): Lives
+    + name(): Name
+    - name: Name
+    - score: Score
+    - lives: Lives
+}
+
+class Highscore {
+    - highscore_data: int[]
+    - path_to_file: String
+    - new_highscore_idx: int
+    + __init__(path_to_file: str)
+    + update(score: Score): None
+    + __str__(): String
+}
+
+TextBasedGame "1" o--> "1" Highscore
+TextBasedGame "1" o--> "1" Player
+Menu "1" *--> "1" TextBasedGame
+Menu "1" *--> "1" Player
+Menu "1" *--> "1" Highscore
+
+@enduml

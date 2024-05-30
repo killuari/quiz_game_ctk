@@ -17,8 +17,6 @@ class GraphicsBasedGame():
         # self.__create_widgets()
 
     def __create_widgets(self):
-        # self.__name_entry = ctk.CTkEntry(self.__app, placeholder_text="Please enter your name.")
-        # self.__name_entry.grid(column=0, row=0, sticky="nsew")
         pass
 
     def __get_player_name(self):

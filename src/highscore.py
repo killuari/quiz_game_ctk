@@ -31,9 +31,12 @@ class Highscore():
             json.dump({"highscore_data" : self.__highscore_data}, f)
 
     def __str__(self):
-        line = "-----Highscores-----"
-        for idx, highscore in enumerate(self.__highscore_data):
-            line += f"\n#{idx+1}: {highscore}"
-            if idx == self.__new_highscore_idx:
-                line += " <-- New Entry!"
+        if len(self.__highscore_data) == 0:
+            line = "No Highscores yet!"
+        else:
+            line = "-----Highscores-----"
+            for idx, highscore in enumerate(self.__highscore_data):
+                line += f"\n#{idx+1}: {highscore}"
+                if idx == self.__new_highscore_idx:
+                    line += " <-- New Entry!"
         return line

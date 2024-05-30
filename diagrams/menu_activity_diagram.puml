@@ -5,20 +5,19 @@ start
 
 :Create Menu;
 :Run Menu;
-while (not quit) is (True)
+repeat :Game Loop;
   :Print menu;
-  while (wrong input / no input) is (True)
-    :Ask player for input;
-  endwhile (False)
-    if (input) equals (a) then
+  repeat :Ask player for input;
+  repeat while (wrong input) is (True)
+  switch (input)
+    case (a)
         :Run TextBasedGame;
-    elseif (input) equals (b) then
+    case (b)
         :Display Highscore;
-    else (c)
+    case (c)
         :quit;
-    endif
-endwhile (False)
-:Exit game;
-end
+        end
+    endswitch
+repeat while
 @enduml
 ```

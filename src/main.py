@@ -1,8 +1,8 @@
-from menu import Menu
+from graphics_based_game import GraphicsBasedGame
 
 def main():
-    menu = Menu()
-    menu.run()
+    game = GraphicsBasedGame()
+    game.run()
 
 if __name__ == "__main__":
     main()

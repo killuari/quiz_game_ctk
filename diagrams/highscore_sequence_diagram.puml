@@ -2,13 +2,13 @@
 skin rose
 skinparam style strictuml
 
-participant TextBasedGame
+participant GraphicsBasedGame
 participant Highscore
 participant FileSystem
 participant HighscoreFile
 
 create Highscore
-TextBasedGame -> Highscore: init(path_to_file)
+GraphicsBasedGame -> Highscore: init(path_to_file)
 Highscore -> FileSystem: open(path_to_file)
 alt file exists
     create HighscoreFile
@@ -20,7 +20,7 @@ alt file exists
 else file not found
     FileSystem --> Highscore: set highscore_data empty
 end
-TextBasedGame -> Highscore: update(score)
+GraphicsBasedGame -> Highscore: update(score)
 alt highscore_data empty
     Highscore -> FileSystem: create HighscoreFile
     create HighscoreFile
@@ -32,12 +32,13 @@ end
 Highscore -> FileSystem: write new highscore_date into file
 FileSystem -> HighscoreFile: write new highscore_date into file
 HighscoreFile --> FileSystem: success
+FileSystem --> Highscore: success
 deactivate HighscoreFile
-TextBasedGame -> Highscore: print()
+GraphicsBasedGame -> Highscore: draw highscore
 activate Highscore
-loop iterate over highscore_data
-    Highscore -> Highscore: print score
+loop iterate over sorted highscore keys
+    Highscore -> Highscore: print name and score
 end
-Highscore --> TextBasedGame: print highscore
+Highscore --> GraphicsBasedGame: highscore drawn
 deactivate Highscore
 @enduml

@@ -5,6 +5,7 @@ from question import Question
 from highscore import Highscore
 from menu import Menu
 from player import Player
+from timer import QuestionTimer
 
 class GraphicsBasedGame():
     def __init__(self):
@@ -43,9 +44,10 @@ class GraphicsBasedGame():
 
         self.__player = Player(name)
 
-    def __next_question(self, last_answer_correct: bool = None):
+    def __next_question(self):
         current_question = self.__get_question(self.__current_question_idx)
-        self.__draw_question(current_question, last_answer_correct)
+        self.__draw_question(current_question)
+        QuestionTimer(self.__on_wrong_answer, self.__timer_label)
 
         if self.__current_question_idx >= self.__get_total_number_of_questions():
             self.__current_question_idx = 0
@@ -98,7 +100,7 @@ class GraphicsBasedGame():
         self.__question_frame.destroy()
         self.__question_buttons_frame.destroy()
 
-        self.__next_question(last_answer_correct=True)
+        self.__next_question()
 
     def __on_wrong_answer(self):
         self.__player.lives().loose_a_life()
@@ -111,7 +113,7 @@ class GraphicsBasedGame():
             self.__highscore.update(self.__player)
             self.__draw_highscores(new_score=self.__player.score().get())
         else:
-            self.__next_question(last_answer_correct=False)
+            self.__next_question()
 
     #----Draw Functions----
     def __draw_menu(self):
@@ -144,7 +146,7 @@ class GraphicsBasedGame():
         back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
         reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
 
-    def __draw_question(self, question: Question, last_answer_correct: bool = None):
+    def __draw_question(self, question: Question):
         self.__app.grid_columnconfigure(0, weight=1)
         self.__app.grid_rowconfigure((0, 1, 2), weight=1)
 
@@ -161,13 +163,11 @@ class GraphicsBasedGame():
 
         score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats)
         lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats)
-        answer_label = ctk.CTkLabel(self.__stats_frame, text="", font=font_stats)
-        if last_answer_correct is not None:
-            answer_label.configure(text="Correct!" if last_answer_correct else "Wrong!")
+        self.__timer_label = ctk.CTkLabel(self.__stats_frame, text="", font=font_stats)
 
         self.__stats_frame.grid_columnconfigure((0, 1), weight=1)
         score_label.grid(column=0, row=0, sticky="W", padx=20, pady=15)
-        answer_label.grid(column=1, row=0, sticky="EW", padx=200, pady=15)
+        self.__timer_label.grid(column=1, row=0, sticky="EW", padx=200, pady=15)
         lives_label.grid(column=2, row=0, sticky="E", padx=20, pady=15)
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)

@@ -53,11 +53,12 @@ class Menu {
 }
 
 class Highscore {
-    - highscore_data: int[]
+    - highscore_data: dict
     - path_to_file: String
     + __init__(path_to_file: str)
-    + update(score: Score): None
+    + update(player: Player): None
     + reset(): None
+    - get_sorted_highscore_keys(): String[]
     + __str__(): String
 }
 

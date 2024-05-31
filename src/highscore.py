@@ -27,7 +27,7 @@ class Highscore():
         with open(self.__path_to_file, 'w+') as f:
             json.dump(self.__highscore_data, f)
 
-    def __get_sorted_highscore_keys(self):
+    def __get_sorted_highscore_keys(self) -> list[str]:
         sorted_highscore_keys = []
         not_used_highscore_data = self.__highscore_data.copy()
         for highscore in range(len(self.__highscore_data.keys())):

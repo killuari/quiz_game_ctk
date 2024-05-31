@@ -42,6 +42,4 @@ class Highscore():
             line = ""
             for idx, highscore in enumerate(self.__highscore_data):
                 line += f"\n#{idx+1}: {highscore}"
-                if idx == self.__new_highscore_idx:
-                    line += " <-- New Entry!"
         return line

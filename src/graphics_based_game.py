@@ -20,6 +20,7 @@ class GraphicsBasedGame():
         self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_variying_answers.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
         self.__highscore = Highscore("assets/highscore.json")
+        self.__current_question_idx = 0
 
         # Connect to Server
         self.__connected_to_server = True
@@ -42,19 +43,14 @@ class GraphicsBasedGame():
 
         self.__player = Player(name)
 
-    def __game_loop(self):
-        current_question_idx = 0
+    def __next_question(self, last_answer_correct: bool = None):
+        current_question = self.__get_question(self.__current_question_idx)
+        self.__draw_question(current_question, last_answer_correct)
 
-        if not self.__player.lives().is_game_over():
-            current_question = self.__get_question(current_question_idx)
-            self.__draw_question(current_question)
-
-            if current_question_idx >= self.__get_total_number_of_questions():
-                current_question_idx = 0
-
-        print(f"{self.__player.name()}, you have achieved {self.__player.score().get()} points!")
-
-        self.__highscore.update(self.__player.score())
+        if self.__current_question_idx >= self.__get_total_number_of_questions():
+            self.__current_question_idx = 0
+        else:
+            self.__current_question_idx += 1
 
     #----QuestionFactory Functions----
     def __get_question(self, index: int) -> Question:
@@ -73,8 +69,10 @@ class GraphicsBasedGame():
     #----Button Event Functions----
     def __on_play_button_pressed(self):
         self.__menu.destroy()
+        self.__player.reset()
+        self.__current_question_idx = 0
 
-        self.__game_loop()
+        self.__next_question()
 
     def __on_highscore_button_pressed(self):
         self.__menu.destroy()
@@ -94,10 +92,26 @@ class GraphicsBasedGame():
         self.__draw_highscores()
 
     def __on_right_answer(self):
-        print("right!")
+        self.__player.score().add(100)
+
+        self.__stats_frame.destroy()
+        self.__question_frame.destroy()
+        self.__question_buttons_frame.destroy()
+
+        self.__next_question(last_answer_correct=True)
 
     def __on_wrong_answer(self):
-        print("wrong!")
+        self.__player.lives().loose_a_life()
+
+        self.__stats_frame.destroy()
+        self.__question_frame.destroy()
+        self.__question_buttons_frame.destroy()
+
+        if self.__player.lives().is_game_over():
+            self.__highscore.update(self.__player.score())
+            self.__draw_highscores(new_score=self.__player.score().get())
+        else:
+            self.__next_question(last_answer_correct=False)
 
     #----Draw Functions----
     def __draw_menu(self):
@@ -105,7 +119,7 @@ class GraphicsBasedGame():
         self.__menu.set_welcome_label(self.__player.name())
         self.__menu.set_button_commands(self.__on_play_button_pressed, self.__on_highscore_button_pressed)
 
-    def __draw_highscores(self):
+    def __draw_highscores(self, new_score: int = None):
         self.__app.grid_columnconfigure(0, weight=1)
         self.__app.grid_rowconfigure((0, 1), weight=1)
 
@@ -116,7 +130,11 @@ class GraphicsBasedGame():
 
         font = ctk.CTkFont(family="Helvetica", size=40)
 
-        highscore_title = ctk.CTkLabel(self.__highscore_frame, text="------ Highscores ------", font=font)
+        highscore_title = ctk.CTkLabel(self.__highscore_frame, text="", font=font)
+        if new_score is not None:
+            highscore_title.configure(text=f"You achieved {new_score} points!\n\n------ Highscores ------")
+        else:
+            highscore_title.configure(text=f"------ Highscores ------")
         highscore_title.grid(sticky="S")
         self.__highscore_label = ctk.CTkLabel(self.__highscore_frame, text=str(self.__highscore), font=font)
         self.__highscore_label.grid(sticky="N")
@@ -126,7 +144,7 @@ class GraphicsBasedGame():
         self.__back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
         self.__reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
 
-    def __draw_question(self, question: Question):
+    def __draw_question(self, question: Question, last_answer_correct: bool = None):
         self.__app.grid_columnconfigure(0, weight=1)
         self.__app.grid_rowconfigure((0, 1, 2), weight=1)
 
@@ -143,10 +161,14 @@ class GraphicsBasedGame():
 
         score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats)
         lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats)
+        answer_label = ctk.CTkLabel(self.__stats_frame, text="", font=font_stats)
+        if last_answer_correct is not None:
+            answer_label.configure(text="Correct!" if last_answer_correct else "Wrong!")
 
         self.__stats_frame.grid_columnconfigure((0, 1), weight=1)
-        score_label.pack(side="left", padx=250)
-        lives_label.pack(side="right", padx=250)
+        score_label.grid(column=0, row=0, sticky="W", padx=20, pady=15)
+        answer_label.grid(column=1, row=0, sticky="EW", padx=200, pady=15)
+        lives_label.grid(column=2, row=0, sticky="E", padx=20, pady=15)
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)
         question_title.grid(sticky="S")

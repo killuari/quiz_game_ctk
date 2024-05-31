@@ -11,7 +11,6 @@ class TextBasedGame():
         self.__player = player
         self.__highscore = highscore
 
-
         # Connect to Server
         self.__connected_to_server = True
         try:

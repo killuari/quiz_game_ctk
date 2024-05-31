@@ -1,0 +1,67 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class GraphicsBasedGame {
+    - app: CTk
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    - highscore: Highscore
+    - menu: Menu
+    - highscore_frame: CTkFrame
+    - highscore_buttons_frame: CTkFrame
+    - stats_frame: CTkFrame
+    - question_frame: CTkFrame
+    - question_buttons_frame: CTkFrame
+    - current_question_idx: int
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+    - get_player(): None
+    - next_question(last_answer_correct: boolean)
+    - on_play_button_pressed(): None
+    - on_highscore_button_pressed(): None
+    - on_highscore_back_button_pressed(): None
+    - on_highscore_reset_button_pressed(): None
+    - on_right_answer(): None
+    - on_wrong_answer(): None
+    - draw_menu(): None
+    - draw_highscores(new_score: int): None
+    - draw_question(question: Question, last_answer_correct: bool): None
+
+}
+
+class Menu {
+    - app: CTk
+    - background_label: CTkLabel
+    - welcome_frame: CTkFrame
+    - main_frame: CTkFrame
+    - welcome_label: CTkLabel
+    - play_button: CTkButton
+    - highscore_button: CTkButton
+    - exit_button: CTkButton
+    + __init__(app: CTk):
+    - exit_game(): None
+    - create_widgets(): None
+    + set_welcome_label(name: String): None
+    + set_button_commands(on_play: callable, on_highscore: callable): None
+    + destroy(): None
+}
+
+class Highscore {
+    - highscore_data: int[]
+    - path_to_file: String
+    + __init__(path_to_file: str)
+    + update(score: Score): None
+    + reset(): None
+    + __str__(): String
+}
+
+GraphicsBasedGame "1" *--> "1" Menu
+GraphicsBasedGame "1" *--> "1" Highscore
+
+@enduml

@@ -1,6 +1,5 @@
 import customtkinter as ctk
 from PIL import Image
-from highscore import Highscore
 
 class Menu():
     def __init__(self, app: ctk.CTk):

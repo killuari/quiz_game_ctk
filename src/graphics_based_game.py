@@ -136,13 +136,13 @@ class GraphicsBasedGame():
         else:
             highscore_title.configure(text=f"------ Highscores ------")
         highscore_title.grid(sticky="S")
-        self.__highscore_label = ctk.CTkLabel(self.__highscore_frame, text=str(self.__highscore), font=font)
-        self.__highscore_label.grid(sticky="N")
+        highscore_label = ctk.CTkLabel(self.__highscore_frame, text=str(self.__highscore), font=font)
+        highscore_label.grid(sticky="N")
 
-        self.__back_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Back", width=280, height=56, command=self.__on_highscore_back_button_pressed)
-        self.__reset_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Reset", width=280, height=56, command=self.__on_highscore_reset_button_pressed)
-        self.__back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
-        self.__reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
+        back_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Back", width=280, height=56, command=self.__on_highscore_back_button_pressed)
+        reset_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Reset", width=280, height=56, command=self.__on_highscore_reset_button_pressed)
+        back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
+        reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
 
     def __draw_question(self, question: Question, last_answer_correct: bool = None):
         self.__app.grid_columnconfigure(0, weight=1)

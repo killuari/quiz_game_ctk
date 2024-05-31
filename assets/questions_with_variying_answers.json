@@ -45,7 +45,7 @@
         "correct": "Object-oriented programming"
     },
     {
-        "question": "What is the output of the following code snippet in Python?\n```python\nprint('Hello ' + 'World')```",
+        "question": "What is the output of the following code snippet in Python?\nprint('Hello ' + 'World')",
         "choices": ["'Hello + World'", "Hello World", "'Hello World'", "Hello + World"],
         "correct": "Hello World"
     },

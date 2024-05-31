@@ -108,7 +108,7 @@ class GraphicsBasedGame():
         self.__question_buttons_frame.destroy()
 
         if self.__player.lives().is_game_over():
-            self.__highscore.update(self.__player.score())
+            self.__highscore.update(self.__player)
             self.__draw_highscores(new_score=self.__player.score().get())
         else:
             self.__next_question(last_answer_correct=False)

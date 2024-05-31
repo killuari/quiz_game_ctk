@@ -128,22 +128,32 @@ class GraphicsBasedGame():
 
     def __draw_question(self, question: Question):
         self.__app.grid_columnconfigure(0, weight=1)
-        self.__app.grid_rowconfigure((0, 1), weight=1)
+        self.__app.grid_rowconfigure((0, 1, 2), weight=1)
 
-        self.__question_frame = ctk.CTkFrame(self.__app, width=600, height=200)
+        self.__stats_frame = ctk.CTkFrame(self.__app, width=1200)
+        self.__question_frame = ctk.CTkFrame(self.__app, width=1200)
         self.__question_buttons_frame = ctk.CTkFrame(self.__app)
-        self.__question_frame.grid(row=0, sticky="S")
-        self.__question_buttons_frame.grid(row=1)
+        self.__stats_frame.grid(row=0, sticky="N")
+        self.__question_frame.grid(row=1, sticky="NS")
+        self.__question_buttons_frame.grid(row=2)
 
         font_title = ctk.CTkFont(family="Helvetica", size=40)
         font_question = ctk.CTkFont(family="Helvetica", size=30)
+        font_stats = ctk.CTkFont(family="Helvetica", size=35)
+
+        score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats)
+        lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats)
+
+        self.__stats_frame.grid_columnconfigure((0, 1), weight=1)
+        score_label.pack(side="left", padx=250)
+        lives_label.pack(side="right", padx=250)
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)
         question_title.grid(sticky="S")
         question_text = ctk.CTkLabel(self.__question_frame, text=question.get_question_text(), font=font_question, wraplength=1200)
         question_text.grid(sticky="NS")
-        self.__question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question)
-        self.__question_answers.grid(sticky="N")
+        question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question)
+        question_answers.grid(sticky="N")
 
         for idx, option in enumerate(question.get_options()):
             button_command = self.__on_right_answer if question.get_answers()[idx].is_correct() else self.__on_wrong_answer

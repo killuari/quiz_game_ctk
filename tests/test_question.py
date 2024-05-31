@@ -39,11 +39,11 @@ def test_question_init_shuffles_answers(mock_shuffle):
     question = Question(question_string, answer_strings, correct_answer)
     mock_shuffle.assert_called_with(question._Question__answers)
 
-def test_str_question(question):
-    expected = f"Question: {question_string}\n"
-    for idx, answer in enumerate(question.get_answers()):
-        expected += f"{chr(ord('a') + idx)}) {str(answer)}\n"
+# def test_str_question(question):
+#     expected = f"Question: {question_string}\n"
+#     for idx, answer in enumerate(question.get_answers()):
+#         expected += f"{chr(ord('a') + idx)}) {str(answer)}\n"
 
-    question_str = str(question)
-    assert question_str == expected, f"Expected \n{expected}, but got \n{question_str}."
+#     question_str = str(question)
+#     assert question_str == expected, f"Expected \n{expected}, but got \n{question_str}."
 

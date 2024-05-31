@@ -1,6 +1,5 @@
 import json
 from player import Player
-from score import Score
 
 class Highscore():
     def __init__(self, path_to_file: str):

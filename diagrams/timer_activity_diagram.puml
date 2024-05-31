@@ -1,0 +1,19 @@
+```plantuml
+@startuml
+
+start
+:Init QuestionTimer;
+:Start Timer (remaining seconds = 30);
+while (remaining seconds) is (>0)
+    :Update timer label to current second;
+        if (remaining seconds) then (<=5)
+            :Set timer label text color to red;
+        endif
+    :remaining seconds - 1;
+endwhile (<0)
+:Loose a life;
+:Next Question;
+:destroy timer object;
+end
+@enduml
+```

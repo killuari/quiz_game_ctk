@@ -1,0 +1,47 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class GraphicsBasedGame {
+    - app: CTk
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    - highscore: Highscore
+    - menu: Menu
+    - highscore_frame: CTkFrame
+    - highscore_buttons_frame: CTkFrame
+    - stats_frame: CTkFrame
+    - question_frame: CTkFrame
+    - question_buttons_frame: CTkFrame
+    - current_question_idx: int
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+    - get_player(): None
+    - next_question(last_answer_correct: boolean)
+    - on_play_button_pressed(): None
+    - on_highscore_button_pressed(): None
+    - on_highscore_back_button_pressed(): None
+    - on_highscore_reset_button_pressed(): None
+    - on_right_answer(): None
+    - on_wrong_answer(): None
+    - draw_menu(): None
+    - draw_highscores(new_score: int): None
+    - draw_question(question: Question, last_answer_correct: bool): None
+
+}
+
+class QuestionTimer {
+    - timer_label: CTkLabel
+    - on_timer_timeout: callable
+    + __init__(on_timer_timeout: callable, timer_label: CTkLabel, seconds: int)
+    - question_timer(seconds)
+}
+
+GraphicsBasedGame "1" *--> "1..n" QuestionTimer
+
+@enduml

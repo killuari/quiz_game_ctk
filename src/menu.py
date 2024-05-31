@@ -15,8 +15,8 @@ class Menu():
         self.__app.grid_rowconfigure((0, 1), weight=1)
 
         logo = ctk.CTkImage(Image.open("assets/logo.jpeg"), size=(1280, 720))
-        background_label = ctk.CTkLabel(self.__app, text="", image=logo)
-        background_label.place(x=0, y=0, relwidth=1, relheight=1)
+        self.__background_label = ctk.CTkLabel(self.__app, text="", image=logo)
+        self.__background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         self.__welcome_frame = ctk.CTkFrame(self.__app)
         self.__main_frame = ctk.CTkFrame(self.__app)
@@ -36,6 +36,11 @@ class Menu():
     def set_welcome_label(self, name: str):
         self.__welcome_label.configure(text=f"Welcome {name}!")
 
-    def deactivate(self):
-        self.__welcome_frame.configure(state="disabled")
-        self.__main_frame.configure(state="disabled")
+    def set_button_commands(self, on_play: callable, on_highscore: callable):
+        self.__play_button.configure(command=on_play)
+        self.__highscore_button.configure(command=on_highscore)
+
+    def destroy(self):
+        self.__welcome_frame.destroy()
+        self.__main_frame.destroy()
+        self.__background_label.destroy()

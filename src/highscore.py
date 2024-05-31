@@ -34,7 +34,7 @@ class Highscore():
         if len(self.__highscore_data) == 0:
             line = "No Highscores yet!"
         else:
-            line = "-----Highscores-----"
+            line = ""
             for idx, highscore in enumerate(self.__highscore_data):
                 line += f"\n#{idx+1}: {highscore}"
                 if idx == self.__new_highscore_idx:

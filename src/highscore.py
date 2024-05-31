@@ -30,6 +30,11 @@ class Highscore():
         with open(self.__path_to_file, 'w+') as f:
             json.dump({"highscore_data" : self.__highscore_data}, f)
 
+    def reset(self):
+        with open(self.__path_to_file, 'w+') as f:
+            json.dump({"highscore_data" : []}, f)
+        self.__highscore_data = []
+
     def __str__(self):
         if len(self.__highscore_data) == 0:
             line = "No Highscores yet!"

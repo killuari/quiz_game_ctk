@@ -20,12 +20,34 @@ class GraphicsBasedGame():
 
         self.__player = Player(name)
     
+    #----Button Event Functions----
     def __on_play_button_pressed(self):
         self.__menu.destroy()
 
     def __on_highscore_button_pressed(self):
         self.__menu.destroy()
+        self.__draw_highscores()
 
+    def __on_highscore_back_button_pressed(self):
+        self.__highscore_frame.destroy()
+        self.__highscore_buttons_frame.destroy()
+        
+        self.__draw_menu()
+
+    def __on_highscore_reset_button_pressed(self):
+        self.__highscore_frame.destroy()
+        self.__highscore_buttons_frame.destroy()
+
+        self.__highscore.reset()
+        self.__draw_highscores()
+
+    #----Draw Functions----
+    def __draw_menu(self):
+        self.__menu = Menu(self.__app)
+        self.__menu.set_welcome_label(self.__player.name())
+        self.__menu.set_button_commands(self.__on_play_button_pressed, self.__on_highscore_button_pressed)
+
+    def __draw_highscores(self):
         self.__app.grid_columnconfigure(0, weight=1)
         self.__app.grid_rowconfigure((0, 1), weight=1)
 
@@ -46,21 +68,7 @@ class GraphicsBasedGame():
         self.__back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
         self.__reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
 
-    def __on_highscore_back_button_pressed(self):
-        self.__highscore_frame.destroy()
-        self.__highscore_buttons_frame.destroy()
-        
-        self.__create_menu()
-
-    def __on_highscore_reset_button_pressed(self):
-        pass
-
-    def __create_menu(self):
-        self.__menu = Menu(self.__app)
-        self.__menu.set_welcome_label(self.__player.name())
-        self.__menu.set_button_commands(self.__on_play_button_pressed, self.__on_highscore_button_pressed)
-
     def run(self):
         self.__get_player()
-        self.__create_menu()
+        self.__draw_menu()
         self.__app.mainloop()

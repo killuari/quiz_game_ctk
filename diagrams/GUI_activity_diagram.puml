@@ -1,0 +1,47 @@
+```plantuml
+@startuml
+
+start
+
+:Init App Window;
+repeat :draw Menu;
+    switch (button pressed)
+        case (play)
+            :destroy Menu;
+            repeat :draw Question;
+                if (button pressed) then (right answer)
+                    :Score +100;
+                else (wrong answer)
+                    :Lives -1;
+                endif
+            repeat while (player has lives) is (True)
+            :destroy game;
+            :update Highscores;
+            :draw Highscores;
+            repeat
+                switch (button pressed)
+                    case (back)
+                        :destroy Highscores;
+                    case (reset)
+                        :reset Highscores;
+                        :draw Highscores;
+                endswitch
+            repeat while (back not pressed) is (True)
+        case (view highscores)
+            :destroy Menu;
+            :draw Highscores;
+            repeat
+                switch (button pressed)
+                    case (back)
+                        :destroy Highscores;
+                    case (reset)
+                        :reset Highscores;
+                        :draw Highscores;
+                endswitch
+            repeat while (back not pressed) is (True)
+        case (exit game)
+            end
+    endswitch
+repeat while
+@enduml
+```

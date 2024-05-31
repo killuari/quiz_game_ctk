@@ -23,7 +23,7 @@ class Question():
         return [chr(ord('a') + idx) for idx in range(len(self.get_answers()))]
     
     def __str__(self) -> str:
-        question_print = f"{self.get_question_text()}\n"
+        question_print = ""
         for idx, answer in enumerate(self.get_answers()):
             question_print += f"{self.get_options()[idx]}) {answer}\n"
 

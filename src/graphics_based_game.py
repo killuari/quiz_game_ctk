@@ -13,6 +13,7 @@ class GraphicsBasedGame():
         self.__app = ctk.CTk()
         self.__app.title("Quiz King")
         self.__app.minsize(1280, 720)
+        self.__app.maxsize(1280, 720)
         self.__app.resizable(False, False)
 
         # Init Questions and Highscore
@@ -92,6 +93,12 @@ class GraphicsBasedGame():
         self.__highscore.reset()
         self.__draw_highscores()
 
+    def __on_right_answer(self):
+        print("right!")
+
+    def __on_wrong_answer(self):
+        print("wrong!")
+
     #----Draw Functions----
     def __draw_menu(self):
         self.__menu = Menu(self.__app)
@@ -133,9 +140,12 @@ class GraphicsBasedGame():
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)
         question_title.grid(sticky="S")
-        self.__question_label = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question)
-        self.__question_label.grid(sticky="N")
+        question_text = ctk.CTkLabel(self.__question_frame, text=question.get_question_text(), font=font_question, wraplength=1200)
+        question_text.grid(sticky="NS")
+        self.__question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question)
+        self.__question_answers.grid(sticky="N")
 
         for idx, option in enumerate(question.get_options()):
-            button = ctk.CTkButton(self.__question_buttons_frame, text=option.upper(), width=280, height=56)
+            button_command = self.__on_right_answer if question.get_answers()[idx].is_correct() else self.__on_wrong_answer
+            button = ctk.CTkButton(self.__question_buttons_frame, text=option.upper(), width=280, height=56, command=button_command)
             button.grid(column=idx%4, row=int(idx/4), sticky="NSEW", padx=10, pady=10)

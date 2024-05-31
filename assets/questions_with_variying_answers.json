@@ -1,5 +1,10 @@
 [
     {
+        "question": "What design pattern ensures a class has only one instance and provides a global point of access to it?",
+        "choices": ["Observer pattern", "Factory pattern", "Singleton pattern", "Adapter pattern", "Template pattern", "Strategy pattern"],
+        "correct": "Singleton pattern"
+    },
+    {
         "question": "What does 'SQL' stand for?",
         "choices": ["Structured Question Language", "Structured Query Language", "Simplified Query Language"],
         "correct": "Structured Query Language"
@@ -53,11 +58,6 @@
         "question": "Which HTTP method is used to send data to a server to create/update a resource?",
         "choices": ["GET", "POST", "DELETE", "PUT", "PATCH"],
         "correct": "POST"
-    },
-    {
-        "question": "What design pattern ensures a class has only one instance and provides a global point of access to it?",
-        "choices": ["Observer pattern", "Factory pattern", "Singleton pattern", "Adapter pattern", "Template pattern", "Strategy pattern"],
-        "correct": "Singleton pattern"
     },
     {
         "question": "What file extension is commonly used for Java bytecode files?",

@@ -30,7 +30,7 @@ class Highscore():
     def __get_sorted_highscore_keys(self) -> list[str]:
         sorted_highscore_keys = []
         not_used_highscore_data = self.__highscore_data.copy()
-        for highscore in range(len(self.__highscore_data.keys())):
+        for i in range(len(self.__highscore_data.keys())):
             idx = list(not_used_highscore_data.values()).index(max(not_used_highscore_data.values()))
             key = list(not_used_highscore_data.keys())[idx]
             not_used_highscore_data.pop(key)

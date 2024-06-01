@@ -7,6 +7,7 @@ from menu import Menu
 from player import Player
 from timer import QuestionTimer
 from difficulty import Difficulty
+from PIL import Image
 
 class GraphicsBasedGame():
     def __init__(self):

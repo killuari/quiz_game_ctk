@@ -15,4 +15,4 @@ class QuestionsFactory(ABC):
         pass
 
     def _json_to_question(self, json: dict) -> Question:
-        return Question(json['question'], json['choices'], json['correct'], json['difficulty'])
+        return Question(json['question'], json['choices'], json['correct'], json['difficulty'], json['image'])

@@ -1,404 +1,485 @@
 [
     {
+        "question": "Which relationship between classes is shown in this diagram?",
+        "choices": ["Inheritance", "Aggregation", "Association", "Composition"],
+        "correct": "Inheritance",
+        "difficulty": 1,
+        "image": "images/inheritance.png"
+    },
+    {
+        "question": "Which component of a computer is shown in this image?",
+        "choices": ["Random Access Memory (RAM)", "Central Processing Unit (CPU)", "Hard Disk Drive (HDD/SSD)", "Graphics Processing Unit (GPU)"],
+        "correct": "Central Processing Unit (CPU)",
+        "difficulty": 1,
+        "image": "images/cpu.jpg"
+    },
+    {
         "question": "What is the smallest unit of data in a computer?",
         "choices": ["Bit", "Byte", "Kilobyte", "Megabyte"],
         "correct": "Bit",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which device is primarily used for output in a computer?",
         "choices": ["Keyboard", "Monitor", "Mouse", "Scanner"],
         "correct": "Monitor",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is typically contained in a file with a .txt extension?",
         "choices": ["Image data", "Video data", "Plain text", "Executable code"],
         "correct": "Plain text",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "In HTML, which tag is used to create an unordered list?",
         "choices": ["<ol>", "<ul>", "<li>", "<dl>"],
         "correct": "<ul>",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "How many bytes are there in a kilobyte (KB)?",
         "choices": ["1024", "1000", "2048", "512"],
         "correct": "1024",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which of these tags is used for creating a table in HTML?",
         "choices": ["<table>", "<tr>", "<td>", "All of the above"],
         "correct": "All of the above",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What does the acronym 'CPU' stand for?",
         "choices": ["Central Processing Unit", "Central Process Unit", "Computer Processing Unit"],
         "correct": "Central Processing Unit",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is the primary use of an operating system?",
         "choices": ["To manage computer hardware and software", "To create software applications", "To browse the internet"],
         "correct": "To manage computer hardware and software",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which one of these is considered secondary storage?",
         "choices": ["RAM", "Hard Disk Drive", "CPU Cache", "Registers"],
         "correct": "Hard Disk Drive",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "In computer graphics, what does 'GUI' stand for?",
         "choices": ["Graphical User Interface", "General User Interface", "Graphics Utility Interface"],
         "correct": "Graphical User Interface",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is the command to print a message to the console in Python?",
         "choices": ["print()", "echo()", "log()", "write()"],
         "correct": "print()",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which of the following programming languages is known for its use in data analysis and statistical computing?",
         "choices": ["JavaScript", "R", "PHP", "CSS"],
         "correct": "R",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which device is considered an input device?",
         "choices": ["Monitor", "Keyboard", "Printer", "Speakers"],
         "correct": "Keyboard",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What does BIOS stand for in computing?",
         "choices": ["Basic Input Output System", "Binary Input Output System", "Basic Internal Output System"],
         "correct": "Basic Input Output System",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is the main function of an operating system?",
         "choices": ["To specify the software operation", "To manage the computer's resources", "To protect the computer from malware"],
         "correct": "To manage the computer's resources",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which programming language is mainly used for iOS and macOS development?",
         "choices": ["JavaScript", "Swift", "Python", "Ruby"],
         "correct": "Swift",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What command is used to create a new directory in Linux?",
         "choices": ["mkdir", "cd", "rmdir", "ls"],
         "correct": "mkdir",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "In the context of databases, what does 'CRUD' stand for?",
         "choices": ["Create, Read, Update, Delete", "Create, Remove, Update, Drop", "Cache, Retrieve, Update, Delete"],
         "correct": "Create, Read, Update, Delete",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which of the following is a client-side scripting language commonly used in web development?",
         "choices": ["PHP", "JavaScript", "Python", "Ruby"],
         "correct": "JavaScript",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What does 'HTTPS' stand for?",
         "choices": ["Hyper Text Transfer Protocol Secure", "Hyper Text Transfer Protocol Standard", "High Transfer Text Secure Protocol"],
         "correct": "Hyper Text Transfer Protocol Secure",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What kind of software is used to access the internet?",
         "choices": ["Web Browser", "Text Editor", "Database", "Operating System"],
         "correct": "Web Browser",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which programming language is known for its 'write once, run anywhere' capability?",
         "choices": ["C", "Java", "Python", "C++"],
         "correct": "Java",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is the function of a compiler in programming?",
         "choices": ["To convert high-level code into machine language", "To execute programs directly", "To edit source code"],
         "correct": "To convert high-level code into machine language",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "Which of the following is not an operating system?",
         "choices": ["Linux", "Windows", "Android", "TCP/IP"],
         "correct": "TCP/IP",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is the most commonly used language for server-side scripting in web development?",
         "choices": ["JavaScript", "PHP", "HTML", "Python"],
         "correct": "PHP",
-        "difficulty": 1
+        "difficulty": 1,
+        "image": ""
     },
     {
         "question": "What is the primary of the 'constructor' in object-oriented programming?",
         "choices": ["To initialize an object", "To construct objects", "To destruct objects"],
         "correct": "To initialize an object",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is the full form of DDR in the context of computer memory?",
         "choices": ["Double Data Rate", "Dynamic Data Rate", "Digital Data Rate"],
         "correct": "Double Data Rate",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which design pattern aims to encapsulate a request as an object, thereby letting you parameterize clients with queues, requests, and operations?",
         "choices": ["Command pattern", "Singleton pattern", "Adapter pattern"],
         "correct": "Command pattern",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is 'persistence' in the context of databases?",
         "choices": ["Saving data so that it persists beyond program termination", "Ensuring data integrity", "Ensuring data security"],
         "correct": "Saving data so that it persists beyond program termination",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In Java, which keyword is used to prevent a class from being subclassed?",
         "choices": ["static", "final", "abstract"],
         "correct": "final",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In SQL, what command is used to remove rows from a table?",
         "choices": ["DELETE", "DROP", "REMOVE"],
         "correct": "DELETE",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which of the following HTTP methods is idempotent?",
         "choices": ["POST", "PUT", "PATCH", "OPTIONS"],
         "correct": "PUT",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In the context of design principles, what does SOLID stand for?",
         "choices": ["Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion", "Simple Object, Large Interface, Dependency Inversion"],
         "correct": "Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In data communication, what does the acronym TCP stand for?",
         "choices": ["Transmission Control Protocol", "Transmission Communication Protocol", "Transmission Command Protocol"],
         "correct": "Transmission Control Protocol",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which relational database is open source and known for its reliability and performance?",
         "choices": ["MySQL", "SQL Server", "Oracle", "MongoDB"],
         "correct": "MySQL",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In object-oriented design, what concept does 'encapsulation' refer to?",
         "choices": ["Wrapping data and methods within a class", "Hiding the internal state and requiring all interaction to be performed through an object's methods"],
         "correct": "Hiding the internal state and requiring all interaction to be performed through an object's methods",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is Agile methodology primarily used for?",
         "choices": ["Managing software development", "Hardware manufacturing", "Graphic design"],
         "correct": "Managing software development",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In Python, what does the 'break' statement do within a loop?",
         "choices": ["Terminates the loop", "Skips the current iteration", "Continues to the next iteration"],
         "correct": "Terminates the loop",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is the purpose of a load balancer in network architecture?",
         "choices": ["Distribute incoming traffic", "Increase bandwidth", "Store static files"],
         "correct": "Distribute incoming traffic",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which of the following statements is true about RESTful web services?",
         "choices": ["They use SOAP protocols", "They are stateless", "They require an XML-based request"],
         "correct": "They are stateless",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In computing, what is the system call used to create a new process in Unix-based systems?",
         "choices": ["fork()", "exec()", "spawn()"],
         "correct": "fork()",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which protocol is used for fetching emails from a server?",
         "choices": ["POP3", "SMTP", "FTP"],
         "correct": "POP3",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In Python, which of the following collections are unordered?",
         "choices": ["list", "set", "tuple"],
         "correct": "set",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In HTML, what is the correct doctype for HTML5?",
         "choices": ["<!DOCTYPE html>", "<!DOCTYPE HTML5>", "<!DOCTYPE html PUBLIC>"],
         "correct": "<!DOCTYPE html>",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is the default scope of the 'var' keyword in JavaScript?",
         "choices": ["Global", "Local", "Block"],
         "correct": "Local",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which of the following algorithms is used for cryptographic hashing?",
         "choices": ["SHA-256", "AES", "RSA"],
         "correct": "SHA-256",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is the average case complexity of the Merge Sort algorithm?",
         "choices": ["O(n log n)", "O(n^2)", "O(log n)"],
         "correct": "O(n log n)",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "In SQL, what is the purpose of the GROUP BY clause?",
         "choices": ["To arrange identical data into groups", "To filter rows in a result set", "To sort the result set"],
         "correct": "To arrange identical data into groups",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which programming concept is related to the ability to use a method from a superclass in a subclass?",
         "choices": ["Inheritance", "Encapsulation", "Polymorphism"],
         "correct": "Inheritance",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "What is the primary benefit of using a NoSQL database over a relational database?",
         "choices": ["Scalability and flexibility with unstructured data", "Support for structured queries", "Strong consistency guarantees"],
         "correct": "Scalability and flexibility with unstructured data",
-        "difficulty": 2
+        "difficulty": 2,
+        "image": ""
     },
     {
         "question": "Which algorithm is generally more efficient than Bubble Sort for large datasets?",
         "choices": ["Quick Sort", "Merge Sort", "Heap Sort", "All of the above"],
         "correct": "All of the above",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "In the context of RESTful APIs, what does 'HATEOAS' stand for?",
         "choices": ["Hypermedia as the Engine of Application State", "Hypertext as the Engine of Application State"],
         "correct": "Hypermedia as the Engine of Application State",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "Which consistency model is the most stringent in distributed systems?",
         "choices": ["Eventual Consistency", "Strong Consistency", "Causal Consistency"],
         "correct": "Strong Consistency",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "In networking, what protocol does ICMP stand for and what is its primary use?",
         "choices": ["Internet Control Message Protocol; used for error handling and diagnostics", "Internet Connection Management Protocol; used for managing network connections"],
         "correct": "Internet Control Message Protocol; used for error handling and diagnostics",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "What is the primary challenge of CAP theorem in distributed databases?",
         "choices": ["Consistency, Availability, and Partition Tolerance", "Consistency, Availability, and Performance"],
         "correct": "Consistency, Availability, and Partition Tolerance",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "Which of the following is an example of an unsupervised learning algorithm?",
         "choices": ["K-means clustering", "Linear Regression", "Decision Trees"],
         "correct": "K-means clustering",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "In machine learning, what is 'overfitting'?",
         "choices": ["When a model learns the training data too well, including noise and outliers", "When a model fails to learn from training data"],
         "correct": "When a model learns the training data too well, including noise and outliers",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "In the context of databases, what does 'sharding' mean?",
         "choices": ["Distributing data across multiple servers", "Backing up data", "Normalizing data"],
         "correct": "Distributing data across multiple servers",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "Which protocol is often used in real-time communication for voice and video?",
         "choices": ["RTP (Real-time Transport Protocol)", "POP3 (Post Office Protocol)", "FTP (File Transfer Protocol)"],
         "correct": "RTP (Real-time Transport Protocol)",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "What is the time complexity for inserting an element in an average balanced Binary Search Tree (BST)?",
         "choices": ["O(log n)", "O(n)", "O(1)"],
         "correct": "O(log n)",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "Which design pattern is used for object creation in which only one instance of a class is allowed?",
         "choices": ["Builder", "Singleton", "Prototype", "Factory"],
         "correct": "Singleton",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "What best describes the 'Kuramoto Model'?",
         "choices": ["A mathematical model to describe synchronization", "A model to predict stock prices", "A database algorithm"],
         "correct": "A mathematical model to describe synchronization",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "What is 'memoization' in dynamic programming?",
         "choices": ["An optimization technique used to reduce time complexity", "Caching intermediate results of expensive function calls", "Both A and B"],
         "correct": "Both A and B",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "Which vulnerability is related to the lack of input validation leading to arbitrary code execution?",
         "choices": ["Buffer Overflow", "Cross-site Scripting", "SQL Injection"],
         "correct": "Buffer Overflow",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "What is the complexity of Dijkstra's algorithm when implemented with a binary heap?",
         "choices": ["O(E log V)", "O(V^2)", "O(E + V log V)"],
         "correct": "O(E log V)",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "What is the depth of a complete binary tree with 'n' nodes?",
         "choices": ["log2(n+1) - 1", "n/2", "n"],
         "correct": "log2(n+1) - 1",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     },
     {
         "question": "Which software development model promotes iterative progress through small, cross-functional teams?",
         "choices": ["Agile", "Waterfall", "V-Model", "Big Bang"],
         "correct": "Agile",
-        "difficulty": 3
+        "difficulty": 3,
+        "image": ""
     }
 ]

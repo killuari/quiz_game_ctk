@@ -15,14 +15,14 @@
     },
     {
         "question": "What is the smallest unit of data in a computer?",
-        "choices": ["Bit", "Byte", "Kilobyte", "Megabyte"],
+        "choices": ["Bit", "Byte", "Kilobyte", "Megabyte", "Gigabyte"],
         "correct": "Bit",
         "difficulty": 1,
         "image": ""
     },
     {
         "question": "Which device is primarily used for output in a computer?",
-        "choices": ["Keyboard", "Monitor", "Mouse", "Scanner"],
+        "choices": ["Keyboard", "Monitor", "Mouse", "Scanner", "Microphone", "Webcam"],
         "correct": "Monitor",
         "difficulty": 1,
         "image": ""
@@ -43,15 +43,8 @@
     },
     {
         "question": "How many bytes are there in a kilobyte (KB)?",
-        "choices": ["1024", "1000", "2048", "512"],
+        "choices": ["1024", "1000", "2048", "512", "256"],
         "correct": "1024",
-        "difficulty": 1,
-        "image": ""
-    },
-    {
-        "question": "Which of these tags is used for creating a table in HTML?",
-        "choices": ["<table>", "<tr>", "<td>", "All of the above"],
-        "correct": "All of the above",
         "difficulty": 1,
         "image": ""
     },
@@ -85,7 +78,7 @@
     },
     {
         "question": "What is the command to print a message to the console in Python?",
-        "choices": ["print()", "echo()", "log()", "write()"],
+        "choices": ["print()", "echo()", "log()", "write()", "printf()"],
         "correct": "print()",
         "difficulty": 1,
         "image": ""
@@ -127,7 +120,7 @@
     },
     {
         "question": "What command is used to create a new directory in Linux?",
-        "choices": ["mkdir", "cd", "rmdir", "ls"],
+        "choices": ["mkdir", "cd", "rmdir", "ls", "dir"],
         "correct": "mkdir",
         "difficulty": 1,
         "image": ""
@@ -141,7 +134,7 @@
     },
     {
         "question": "Which of the following is a client-side scripting language commonly used in web development?",
-        "choices": ["PHP", "JavaScript", "Python", "Ruby"],
+        "choices": ["PHP", "JavaScript", "Python", "Ruby", "C"],
         "correct": "JavaScript",
         "difficulty": 1,
         "image": ""
@@ -162,7 +155,7 @@
     },
     {
         "question": "Which programming language is known for its 'write once, run anywhere' capability?",
-        "choices": ["C", "Java", "Python", "C++"],
+        "choices": ["C", "Java", "Python", "C++", "R", "C#"],
         "correct": "Java",
         "difficulty": 1,
         "image": ""
@@ -218,7 +211,7 @@
     },
     {
         "question": "In Java, which keyword is used to prevent a class from being subclassed?",
-        "choices": ["static", "final", "abstract"],
+        "choices": ["static", "final", "abstract", "protected", "void", "public"],
         "correct": "final",
         "difficulty": 2,
         "image": ""
@@ -295,7 +288,7 @@
     },
     {
         "question": "In computing, what is the system call used to create a new process in Unix-based systems?",
-        "choices": ["fork()", "exec()", "spawn()"],
+        "choices": ["fork()", "exec()", "spawn()", "make()", "create()", "new()"],
         "correct": "fork()",
         "difficulty": 2,
         "image": ""
@@ -337,7 +330,7 @@
     },
     {
         "question": "What is the average case complexity of the Merge Sort algorithm?",
-        "choices": ["O(n log n)", "O(n^2)", "O(log n)"],
+        "choices": ["O(n log n)", "O(n^2)", "O(log n)", "O(n)", "O(log 2n)", "O(log n^2)"],
         "correct": "O(n log n)",
         "difficulty": 2,
         "image": ""
@@ -351,7 +344,7 @@
     },
     {
         "question": "Which programming concept is related to the ability to use a method from a superclass in a subclass?",
-        "choices": ["Inheritance", "Encapsulation", "Polymorphism"],
+        "choices": ["Inheritance", "Encapsulation", "Polymorphism", "Composition", "Aggregation", "Association"],
         "correct": "Inheritance",
         "difficulty": 2,
         "image": ""
@@ -365,8 +358,8 @@
     },
     {
         "question": "Which algorithm is generally more efficient than Bubble Sort for large datasets?",
-        "choices": ["Quick Sort", "Merge Sort", "Heap Sort", "All of the above"],
-        "correct": "All of the above",
+        "choices": ["Quick Sort", "Merge Sort", "Heap Sort", "Every other one"],
+        "correct": "Every other one",
         "difficulty": 3,
         "image": ""
     },
@@ -435,7 +428,7 @@
     },
     {
         "question": "Which design pattern is used for object creation in which only one instance of a class is allowed?",
-        "choices": ["Builder", "Singleton", "Prototype", "Factory"],
+        "choices": ["Builder", "Singleton", "Prototype", "Factory", "Adapter", "Command"],
         "correct": "Singleton",
         "difficulty": 3,
         "image": ""
@@ -470,7 +463,7 @@
     },
     {
         "question": "What is the depth of a complete binary tree with 'n' nodes?",
-        "choices": ["log2(n+1) - 1", "n/2", "n"],
+        "choices": ["log2(n+1) - 1", "n/2", "n", "log2(n+1)", "log(n)", "n^2"],
         "correct": "log2(n+1) - 1",
         "difficulty": 3,
         "image": ""

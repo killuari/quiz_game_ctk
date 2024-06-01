@@ -191,6 +191,10 @@ class GraphicsBasedGame():
         question_title.grid(sticky="S")
         question_text = ctk.CTkLabel(self.__question_frame, text=question.get_question_text(), font=font_question, wraplength=1200)
         question_text.grid(sticky="NS")
+        if not question.get_image() is None:
+            image = ctk.CTkImage(question.get_image(), size=(800, 300))
+            question_image = ctk.CTkLabel(self.__question_frame, text="", image=image)
+            question_image.grid(sticky="NS")
         question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question)
         question_answers.grid(sticky="N")
 

@@ -127,7 +127,7 @@
     },
     {
         "question": "Which programming language is known for its 'write once, run anywhere' capability?",
-        "choices": ["C", "Java", "Python", "Assembly"],
+        "choices": ["C", "Java", "Python", "C++"],
         "correct": "Java",
         "difficulty": 1
     },

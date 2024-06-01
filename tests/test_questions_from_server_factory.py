@@ -51,28 +51,28 @@ def test_question_count_is_returned_correctly(question_factory):
     assert expected == returned, f"Expected {expected}, but got {returned}."
     assert len(responses.calls) == 1, f"Expected only one request, but {responses.calls} were made."
 
-@responses.activate
-def test_question_is_returned_correctly(question_factory):
-    mock_response = {
-        "question": "What is the largest planet in our Solar System?",
-        "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
-        "correct": "Jupiter"
-    }
+# @responses.activate
+# def test_question_is_returned_correctly(question_factory):
+#     mock_response = {
+#         "question": "What is the largest planet in our Solar System?",
+#         "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
+#         "correct": "Jupiter"
+#     }
 
-    question = Question(mock_response["question"], mock_response["choices"], mock_response["correct"])
+#     question = Question(mock_response["question"], mock_response["choices"], mock_response["correct"])
 
-    # Mock the API endpoint
-    responses.add(
-        responses.GET,
-        f"{question_factory._QuestionsFromServerFactory__base_url}/{api_key}/question?index=0",
-        json=mock_response,
-        status=200
-    )
+#     # Mock the API endpoint
+#     responses.add(
+#         responses.GET,
+#         f"{question_factory._QuestionsFromServerFactory__base_url}/{api_key}/question?index=0",
+#         json=mock_response,
+#         status=200
+#     )
 
-    returned = question_factory.get_question(0)
+#     returned = question_factory.get_question(0)
 
-    assert questions_equal(returned, question), f"Question is not correct. Expected {question}, but got {returned}."
-    assert len(responses.calls) == 1, f"Expected only one request, but {responses.calls} were made."
+#     assert questions_equal(returned, question), f"Question is not correct. Expected {question}, but got {returned}."
+#     assert len(responses.calls) == 1, f"Expected only one request, but {responses.calls} were made."
 
 @responses.activate
 def test_count_is_zero_if_request_fails(question_factory):

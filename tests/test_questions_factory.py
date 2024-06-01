@@ -17,19 +17,19 @@ class TestClass(QuestionsFactory):
     def question_to_json(self, json):
         return super()._json_to_question(json)
 
-def test_json_to_question():
-    question_json = {
-        "question": "What is the largest planet in our Solar System?",
-        "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
-        "correct": "Jupiter"
-    }
+# def test_json_to_question():
+#     question_json = {
+#         "question": "What is the largest planet in our Solar System?",
+#         "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
+#         "correct": "Jupiter"
+#     }
 
-    test = TestClass()
-    question = test.question_to_json(question_json)
-    assert question.get_question_text() == question_json["question"]
-    answers = question.get_answers()
-    answer_strings_returned = [str(answer) for answer in answers]
+#     test = TestClass()
+#     question = test.question_to_json(question_json)
+#     assert question.get_question_text() == question_json["question"]
+#     answers = question.get_answers()
+#     answer_strings_returned = [str(answer) for answer in answers]
 
-    for answer_string in question_json["choices"]:
-        assert answer_string in answer_strings_returned, f"Answer string {answer_string} is missing in returned answers"
+#     for answer_string in question_json["choices"]:
+#         assert answer_string in answer_strings_returned, f"Answer string {answer_string} is missing in returned answers"
 

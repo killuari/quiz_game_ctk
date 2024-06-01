@@ -1,4 +1,5 @@
 import requests
+import random
 from question import Question
 from questions_factory import QuestionsFactory
 
@@ -6,6 +7,7 @@ class QuestionsFromServerFactory(QuestionsFactory):
     def __init__(self, base_url: str, api_key: str):
         self.__base_url = base_url
         self.__api_key = api_key
+        self.__questions = [None, None, None]
 
     def get_total_number_of_questions(self) -> int:
         for i in range(3):
@@ -19,10 +21,15 @@ class QuestionsFromServerFactory(QuestionsFactory):
     def __load_questions(self, difficulty: int) -> list[Question]:
         questions : list[Question] = []
         for idx in range(self.get_total_number_of_questions()):
-            question = self.get_question(question)
+            question = self.get_question(idx)
             if question.get_difficulty() == difficulty:
                 questions.append(question)
         return questions
+    
+    def reload_questions(self):
+        for idx, questions in enumerate(self.__questions):
+            if not questions is None:
+                random.shuffle(self.__questions[idx])
 
     def get_question(self, index: int, difficulty: int = None) -> Question:
         if difficulty is None:
@@ -35,5 +42,12 @@ class QuestionsFromServerFactory(QuestionsFactory):
                     return None
             return None
         else:
-            return self.__load_questions(difficulty)[index]
+            if self.__questions[difficulty-1] is None:
+                questions = self.__load_questions(difficulty)
+                random.shuffle(questions)
+                self.__questions[difficulty-1] = questions
+            else:
+                questions = self.__questions[difficulty-1]
+
+            return questions[index]
 

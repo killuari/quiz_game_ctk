@@ -10,5 +10,9 @@ class QuestionsFactory(ABC):
     def get_question(self, index: int, difficulty: int) -> Question:
         pass
 
+    @abstractmethod
+    def reload_questions(self) -> None:
+        pass
+
     def _json_to_question(self, json: dict) -> Question:
         return Question(json['question'], json['choices'], json['correct'], json['difficulty'])

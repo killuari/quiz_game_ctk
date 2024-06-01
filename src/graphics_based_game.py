@@ -6,6 +6,7 @@ from highscore import Highscore
 from menu import Menu
 from player import Player
 from timer import QuestionTimer
+from difficulty import Difficulty
 
 class GraphicsBasedGame():
     def __init__(self):
@@ -18,7 +19,7 @@ class GraphicsBasedGame():
         self.__app.resizable(False, False)
 
         # Init Questions and Highscore
-        self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_variying_answers.json")
+        self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_difficulties_and_variying_answers.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
         self.__highscore = Highscore("assets/highscore.json")
         self.__current_question_idx = 0
@@ -46,7 +47,7 @@ class GraphicsBasedGame():
         self.__player = Player(name)
 
     def __next_question(self):
-        current_question = self.__get_question(self.__current_question_idx)
+        current_question = self.__get_question(self.__current_question_idx, self.__difficulty)
         self.__draw_question(current_question)
         QuestionTimer(self.__on_wrong_answer, self.__timer_label)
 
@@ -74,12 +75,18 @@ class GraphicsBasedGame():
         difficulties = ["Easy", "Medium", "Hard"]
         self.__difficulty = difficulties.index(difficulty) + 1
 
+        # Shuffle Questions
+        self.__questions_from_file.reload_questions()
+        self.__questions_from_server.reload_questions()
+
+        self.__next_question()
+
     def __on_play_button_pressed(self):
         self.__menu.destroy()
         self.__player.reset()
         self.__current_question_idx = 0
 
-        self.__next_question()
+        Difficulty(self.__app, self.__on_difficulty_selected)
 
     def __on_highscore_button_pressed(self):
         self.__menu.destroy()
@@ -99,7 +106,10 @@ class GraphicsBasedGame():
         self.__draw_highscores()
 
     def __on_right_answer(self):
-        self.__player.score().add(100)
+        match self.__difficulty:
+            case 1: self.__player.score().add(20)
+            case 2: self.__player.score().add(50)
+            case 3: self.__player.score().add(100)
 
         self.__stats_frame.destroy()
         self.__question_frame.destroy()

@@ -22,6 +22,7 @@ class GraphicsBasedGame():
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
         self.__highscore = Highscore("assets/highscore.json")
         self.__current_question_idx = 0
+        self.__difficulty = None
 
         # Connect to Server
         self.__connected_to_server = True
@@ -55,12 +56,12 @@ class GraphicsBasedGame():
             self.__current_question_idx += 1
 
     #----QuestionFactory Functions----
-    def __get_question(self, index: int) -> Question:
+    def __get_question(self, index: int, difficulty: int) -> Question:
         if self.__connected_to_server:
-            question_from_server = self.__questions_from_server.get_question(index)
+            question_from_server = self.__questions_from_server.get_question(index, difficulty)
             if not question_from_server is None:
                 return question_from_server
-        return self.__questions_from_file.get_question(index)
+        return self.__questions_from_file.get_question(index, difficulty)
 
     def __get_total_number_of_questions(self) -> int:
         if self.__connected_to_server:
@@ -69,6 +70,10 @@ class GraphicsBasedGame():
         return self.__questions_from_file.get_total_number_of_questions()
 
     #----Button Event Functions----
+    def __on_difficulty_selected(self, difficulty: str):
+        difficulties = ["Easy", "Medium", "Hard"]
+        self.__difficulty = difficulties.index(difficulty) + 1
+
     def __on_play_button_pressed(self):
         self.__menu.destroy()
         self.__player.reset()

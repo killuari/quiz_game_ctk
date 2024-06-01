@@ -2,8 +2,9 @@ import random
 from answer import Answer
 
 class Question():
-    def __init__(self, question_text: str, answer_texts: list[str], correct_answer_text: str):
+    def __init__(self, question_text: str, answer_texts: list[str], correct_answer_text: str, difficulty: int):
         self.__question_text : str = question_text
+        self.__difficulty = difficulty
         self.__answers: list[Answer] = []
 
         for answer_text in answer_texts:
@@ -21,6 +22,9 @@ class Question():
     
     def get_options(self) -> list[str]:
         return [chr(ord('a') + idx) for idx in range(len(self.get_answers()))]
+    
+    def get_difficulty(self) -> int:
+        return self.__difficulty
     
     def __str__(self) -> str:
         question_print = ""

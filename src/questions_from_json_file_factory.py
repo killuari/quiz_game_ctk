@@ -24,7 +24,7 @@ class QuestionsFromJsonFileFactory(QuestionsFactory):
     def get_total_number_of_questions(self) -> int:
         return len(self.__questions)
     
-    def get_question(self, index: int) -> Question:
+    def get_question(self, index: int, difficulty: int) -> Question:
         if index >= 0 and index < self.get_total_number_of_questions():
             return self.__questions[index]
         else:

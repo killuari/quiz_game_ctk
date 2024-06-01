@@ -86,7 +86,7 @@ class GraphicsBasedGame():
         self.__player.reset()
         self.__current_question_idx = 0
 
-        Difficulty(self.__app, self.__on_difficulty_selected)
+        Difficulty(self.__app, self.__on_difficulty_selected, self.__draw_menu)
 
     def __on_highscore_button_pressed(self):
         self.__menu.destroy()

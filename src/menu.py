@@ -21,13 +21,14 @@ class Menu():
         self.__main_frame.pack(pady=200)
 
         font = ctk.CTkFont(family="Helvetica", size=25)
+        font_button = ctk.CTkFont(family="Helvetica", size=35)
 
         self.__welcome_label = ctk.CTkLabel(self.__main_frame, font=font, pady=10)
         self.__welcome_label.grid(row=0, sticky="EW")
 
-        self.__play_button = ctk.CTkButton(self.__main_frame, text="Play", width=280, height=56)
-        self.__highscore_button = ctk.CTkButton(self.__main_frame, text="View Highscore", width=280, height=56)
-        self.__exit_button = ctk.CTkButton(self.__main_frame, text="Exit Game", command=self.__exit_game, width=280, height=56)
+        self.__play_button = ctk.CTkButton(self.__main_frame, text="Play", width=280, height=56, font=font_button)
+        self.__highscore_button = ctk.CTkButton(self.__main_frame, text="View Highscore", width=280, height=56, font=font_button)
+        self.__exit_button = ctk.CTkButton(self.__main_frame, text="Exit Game", command=self.__exit_game, width=280, height=56, font=font_button)
         self.__play_button.grid(column=0, row=1, sticky="NSEW", padx=15, pady=15)
         self.__highscore_button.grid(column=0, row=2, sticky="NSEW", padx=15, pady=7)
         self.__exit_button.grid(column=0, row=3, sticky="NSEW", padx=15, pady=15)

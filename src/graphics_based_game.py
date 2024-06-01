@@ -146,6 +146,7 @@ class GraphicsBasedGame():
         self.__highscore_buttons_frame.grid(row=1)
 
         font = ctk.CTkFont(family="Helvetica", size=40)
+        font_button = ctk.CTkFont(family="Helvetica", size=35)
 
         highscore_title = ctk.CTkLabel(self.__highscore_frame, text="", font=font)
         if new_score is not None:
@@ -156,8 +157,8 @@ class GraphicsBasedGame():
         highscore_label = ctk.CTkLabel(self.__highscore_frame, text=str(self.__highscore), font=font)
         highscore_label.grid(sticky="N")
 
-        back_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Back", width=280, height=56, command=self.__on_highscore_back_button_pressed)
-        reset_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Reset", width=280, height=56, command=self.__on_highscore_reset_button_pressed)
+        back_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Back", width=280, height=56, font=font_button, command=self.__on_highscore_back_button_pressed)
+        reset_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Reset", width=280, height=56, font=font_button, command=self.__on_highscore_reset_button_pressed)
         back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
         reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
 

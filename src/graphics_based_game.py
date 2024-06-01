@@ -23,7 +23,7 @@ class GraphicsBasedGame():
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
         self.__highscore = Highscore("assets/highscore.json")
         self.__current_question_idx = 0
-        self.__difficulty = None
+        self.__difficulty: int = None
 
         # Connect to Server
         self.__connected_to_server = True

@@ -43,8 +43,5 @@ class Difficulty():
         back_button = ctk.CTkButton(self.__main_frame, text="Back", font=font_title, command=self.__on_back_button_pressed)
         back_button.grid(row=4, sticky="EW", pady=5, padx=10)
     
-    
-    
-    
     def __destroy(self):
         self.__main_frame.destroy()

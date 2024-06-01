@@ -1,0 +1,17 @@
+@startuml
+state EnterName
+state Menu
+state Playing
+state ChangeDifficulty
+state Highscores
+
+[*] --> EnterName
+EnterName --> Menu: NAME ENTERED / draw_menu()
+Menu --> Highscores: HIGHSCORE_BUTTON / on_highscore_button_pressed()
+Menu --> ChangeDifficulty: START_BUTTON / on_play_button_pressed()
+Menu --> [*]: EXIT_BUTTON / exit_game()
+ChangeDifficulty --> Playing: START_BUTTON / on_start_button_pressed()
+ChangeDifficulty --> Menu: BACK_BUTTON / on_back_button_pressed()
+Playing --> Highscores: PLAYER NO LIVES / draw_highscores()
+Highscores --> Menu: BACK_BUTTON / on_highscore_back_button_pressed()
+@enduml

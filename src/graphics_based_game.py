@@ -6,6 +6,7 @@ from highscore import Highscore
 from menu import Menu
 from player import Player
 from timer import QuestionTimer
+from difficulty import Difficulty
 
 class GraphicsBasedGame():
     def __init__(self):
@@ -18,10 +19,11 @@ class GraphicsBasedGame():
         self.__app.resizable(False, False)
 
         # Init Questions and Highscore
-        self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_variying_answers.json")
+        self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_with_difficulties_and_variying_answers.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
         self.__highscore = Highscore("assets/highscore.json")
         self.__current_question_idx = 0
+        self.__difficulty: int = None
 
         # Connect to Server
         self.__connected_to_server = True
@@ -45,7 +47,7 @@ class GraphicsBasedGame():
         self.__player = Player(name)
 
     def __next_question(self):
-        current_question = self.__get_question(self.__current_question_idx)
+        current_question = self.__get_question(self.__current_question_idx, self.__difficulty)
         self.__draw_question(current_question)
         QuestionTimer(self.__on_wrong_answer, self.__timer_label)
 
@@ -55,12 +57,12 @@ class GraphicsBasedGame():
             self.__current_question_idx += 1
 
     #----QuestionFactory Functions----
-    def __get_question(self, index: int) -> Question:
+    def __get_question(self, index: int, difficulty: int) -> Question:
         if self.__connected_to_server:
-            question_from_server = self.__questions_from_server.get_question(index)
+            question_from_server = self.__questions_from_server.get_question(index, difficulty)
             if not question_from_server is None:
                 return question_from_server
-        return self.__questions_from_file.get_question(index)
+        return self.__questions_from_file.get_question(index, difficulty)
 
     def __get_total_number_of_questions(self) -> int:
         if self.__connected_to_server:
@@ -69,12 +71,22 @@ class GraphicsBasedGame():
         return self.__questions_from_file.get_total_number_of_questions()
 
     #----Button Event Functions----
+    def __on_difficulty_selected(self, difficulty: str):
+        difficulties = ["Easy", "Medium", "Hard"]
+        self.__difficulty = difficulties.index(difficulty) + 1
+
+        # Shuffle Questions
+        self.__questions_from_file.reload_questions()
+        self.__questions_from_server.reload_questions()
+
+        self.__next_question()
+
     def __on_play_button_pressed(self):
         self.__menu.destroy()
         self.__player.reset()
         self.__current_question_idx = 0
 
-        self.__next_question()
+        Difficulty(self.__app, self.__on_difficulty_selected, self.__draw_menu)
 
     def __on_highscore_button_pressed(self):
         self.__menu.destroy()
@@ -94,7 +106,10 @@ class GraphicsBasedGame():
         self.__draw_highscores()
 
     def __on_right_answer(self):
-        self.__player.score().add(100)
+        match self.__difficulty:
+            case 1: self.__player.score().add(20)
+            case 2: self.__player.score().add(50)
+            case 3: self.__player.score().add(100)
 
         self.__stats_frame.destroy()
         self.__question_frame.destroy()
@@ -131,6 +146,7 @@ class GraphicsBasedGame():
         self.__highscore_buttons_frame.grid(row=1)
 
         font = ctk.CTkFont(family="Helvetica", size=40)
+        font_button = ctk.CTkFont(family="Helvetica", size=35)
 
         highscore_title = ctk.CTkLabel(self.__highscore_frame, text="", font=font)
         if new_score is not None:
@@ -141,8 +157,8 @@ class GraphicsBasedGame():
         highscore_label = ctk.CTkLabel(self.__highscore_frame, text=str(self.__highscore), font=font)
         highscore_label.grid(sticky="N")
 
-        back_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Back", width=280, height=56, command=self.__on_highscore_back_button_pressed)
-        reset_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Reset", width=280, height=56, command=self.__on_highscore_reset_button_pressed)
+        back_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Back", width=280, height=56, font=font_button, command=self.__on_highscore_back_button_pressed)
+        reset_button = ctk.CTkButton(self.__highscore_buttons_frame, text="Reset", width=280, height=56, font=font_button, command=self.__on_highscore_reset_button_pressed)
         back_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
         reset_button.grid(column=1, row=0, sticky="NSEW", padx=10, pady=10)
 

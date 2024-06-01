@@ -1,0 +1,88 @@
+@startuml
+hide empty members
+skin rose
+skinparam classAttributeIconSize 0
+
+class Difficulty {
+    - app: CTk
+    - difficulty: str
+    - on_difficulty_selected: callable
+    - on_back_pressed: callable
+    - main_frame: CTkFrame
+    + __init__(app: CTk, on_difficulty_selected: callable, on_back_pressed: callable)
+    - on_dropdown_pressed(difficulty: str): None
+    - on_start_button_pressed(): None
+    - on_back_button_pressed(): None
+    - create_widgets(): None
+    - destroy(): None
+}
+
+class GraphicsBasedGame {
+    - app: CTk
+    - questions_from_file: QuestionsFromJsonFileFactory
+    - questions_from_server: QuestionsFromServerFactory
+    - connected_to_server: boolean
+    - player: Player
+    - highscore: Highscore
+    - menu: Menu
+    - highscore_frame: CTkFrame
+    - highscore_buttons_frame: CTkFrame
+    - stats_frame: CTkFrame
+    - question_frame: CTkFrame
+    - question_buttons_frame: CTkFrame
+    - current_question_idx: int
+    - difficulty: int
+    + __init__()
+    + run(): None
+    - get_total_number_of_questions(): int
+    - get_question(index: int): Question
+    - get_player(): None
+    - next_question(): None
+    - on_difficulty_selected(difficulty: String): None
+    - on_play_button_pressed(): None
+    - on_highscore_button_pressed(): None
+    - on_highscore_back_button_pressed(): None
+    - on_highscore_reset_button_pressed(): None
+    - on_right_answer(): None
+    - on_wrong_answer(): None
+    - draw_menu(): None
+    - draw_highscores(new_score: int): None
+    - draw_question(question: Question, last_answer_correct: bool): None
+
+}
+
+class QuestionsFromJsonFileFactory {
+    - questions: Question[]
+    - all_questions: Question[]
+    - path_to_file: String
+    + __init__(path_to_file: String)
+    - load_questions(path_to_file: String): Question[]
+    + get_total_number_of_questions(): int
+    + get_question(index: int): Question
+}
+
+class QuestionsFromServerFactory {
+    - api_key: String
+    - base_url: String
+    - questions: Question[]
+    + __init__(base_url: String, api_key: String)
+    + get_total_number_of_questions(): int
+    + get_question(index: int): Question
+    + reload_questions(): None
+    - load_questions(difficulty: int): Question[]
+}
+
+interface QuestionsFactory {
+    + {abstract} get_total_number_of_questions(): int
+    + {abstract} get_question(index: int): Question
+    + {abstract} reload_questions(): None
+    # json_to_question(json: dictionary): Question
+}
+
+GraphicsBasedGame "1" *--> "1..n" Difficulty
+GraphicsBasedGame "1" *--> "1" QuestionsFromServerFactory
+GraphicsBasedGame "1" *--> "1" QuestionsFromJsonFileFactory
+QuestionsFromServerFactory --|> QuestionsFactory
+QuestionsFromJsonFileFactory --|> QuestionsFactory
+
+@enduml

@@ -11,26 +11,27 @@ class Menu():
 
     def __create_widgets(self):
         self.__app.grid_columnconfigure(0, weight=1)
-        self.__app.grid_rowconfigure((0, 1), weight=1)
+        self.__app.grid_rowconfigure(0, weight=1)
 
         logo = ctk.CTkImage(Image.open("assets/logo.jpeg"), size=(1280, 720))
         self.__background_label = ctk.CTkLabel(self.__app, text="", image=logo)
         self.__background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        self.__welcome_frame = ctk.CTkFrame(self.__app)
         self.__main_frame = ctk.CTkFrame(self.__app)
-        self.__welcome_frame.grid(row=0, sticky="S")
-        self.__main_frame.grid(row=1, sticky="N")
+        self.__main_frame.pack(pady=200)
 
-        self.__welcome_label = ctk.CTkLabel(self.__welcome_frame, width=300, height=40)
-        self.__welcome_label.grid(sticky="EW")
+        font = ctk.CTkFont(family="Helvetica", size=25)
+        font_button = ctk.CTkFont(family="Helvetica", size=35)
 
-        self.__play_button = ctk.CTkButton(self.__main_frame, text="Play", width=280, height=56)
-        self.__highscore_button = ctk.CTkButton(self.__main_frame, text="View Highscore", width=280, height=56)
-        self.__exit_button = ctk.CTkButton(self.__main_frame, text="Exit Game", command=self.__exit_game, width=280, height=56)
-        self.__play_button.grid(column=0, row=0, sticky="NSEW", padx=10, pady=10)
-        self.__highscore_button.grid(column=0, row=1, sticky="NSEW", padx=10, pady=10)
-        self.__exit_button.grid(column=0, row=2, sticky="NSEW", padx=10, pady=10)
+        self.__welcome_label = ctk.CTkLabel(self.__main_frame, font=font, pady=10)
+        self.__welcome_label.grid(row=0, sticky="EW")
+
+        self.__play_button = ctk.CTkButton(self.__main_frame, text="Play", width=280, height=56, font=font_button)
+        self.__highscore_button = ctk.CTkButton(self.__main_frame, text="View Highscore", width=280, height=56, font=font_button)
+        self.__exit_button = ctk.CTkButton(self.__main_frame, text="Exit Game", command=self.__exit_game, width=280, height=56, font=font_button)
+        self.__play_button.grid(column=0, row=1, sticky="NSEW", padx=15, pady=15)
+        self.__highscore_button.grid(column=0, row=2, sticky="NSEW", padx=15, pady=7)
+        self.__exit_button.grid(column=0, row=3, sticky="NSEW", padx=15, pady=15)
 
     def set_welcome_label(self, name: str):
         self.__welcome_label.configure(text=f"Welcome {name}!")
@@ -40,6 +41,5 @@ class Menu():
         self.__highscore_button.configure(command=on_highscore)
 
     def destroy(self):
-        self.__welcome_frame.destroy()
         self.__main_frame.destroy()
         self.__background_label.destroy()

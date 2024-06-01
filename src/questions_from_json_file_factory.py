@@ -5,27 +5,42 @@ from questions_factory import QuestionsFactory
 
 class QuestionsFromJsonFileFactory(QuestionsFactory):
     def __init__(self, path_to_file: str):
-        self.__questions : list[Question] = self.__load_questions(path_to_file)
-        random.shuffle(self.__questions)
+        self.__path_to_file = path_to_file
+        self.__all_questions = self.__load_questions()
+        self.__questions = [None, None, None]
 
-    def __load_questions(self, path_to_file: str) -> list[Question]:
+    def __load_questions(self, difficulty: int = None) -> list[Question]:
         questions : list[Question] = []
-
         try:
-            with open(path_to_file) as file:
+            with open(self.__path_to_file) as file:
                 questions_data = json.load(file)
                 for data in questions_data:
-                    questions.append(self._json_to_question(data))
+                    question = self._json_to_question(data)
+                    if difficulty is None:
+                        questions.append(question)
+                    elif question.get_difficulty() == difficulty:
+                        questions.append(question)
         except FileNotFoundError as e:
             print("File not found!")
 
         return questions
     
-    def get_total_number_of_questions(self) -> int:
-        return len(self.__questions)
+    def reload_questions(self):
+        for idx, questions in enumerate(self.__questions):
+            if not questions is None:
+                random.shuffle(self.__questions[idx])
     
-    def get_question(self, index: int) -> Question:
+    def get_total_number_of_questions(self) -> int:
+        return len(self.__all_questions)
+    
+    def get_question(self, index: int, difficulty: int) -> Question:
         if index >= 0 and index < self.get_total_number_of_questions():
-            return self.__questions[index]
+            if self.__questions[difficulty-1] is None:
+                questions = self.__load_questions(difficulty)
+                random.shuffle(questions)
+                self.__questions[difficulty-1] = questions
+            else:
+                questions = self.__questions[difficulty-1]
+            return questions[index]
         else:
             return None

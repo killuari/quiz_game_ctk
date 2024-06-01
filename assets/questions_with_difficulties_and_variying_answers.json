@@ -182,6 +182,41 @@
         "image": ""
     },
     {
+        "question": "What type of network topology is illustrated in this diagram?",
+        "choices": ["Star Topology", "Ring Topology", "Bus Topology", "Mesh Topology"],
+        "correct": "Star Topology",
+        "difficulty": 2,
+        "image": "images/star_topology.png"
+    },
+    {
+        "question": "Which programming concept is demonstrated in the image?",
+        "choices": ["Concurrency", "Conditional Statements", "Recursion", "Looping"],
+        "correct": "Recursion",
+        "difficulty": 2,
+        "image": "images/recursion.png"
+    },
+    {
+        "question": "What is shown in the image?",
+        "choices": ["Shell Script", "SQL Query", "Java Code", "Assembly Language"],
+        "correct": "SQL Query",
+        "difficulty": 2,
+        "image": "images/SQL.png"
+    },
+    {
+        "question": "What software development methodology is illustrated in the image?",
+        "choices": ["Kanban", "Scrum", "Agile", "Waterfall", "V-Model"],
+        "correct": "Waterfall",
+        "difficulty": 2,
+        "image": "images/waterfall.jpg"
+    },
+    {
+        "question": "What kind of logic gate is illustrated in the image?",
+        "choices": ["AND Gate", "OR Gate", "XOR Gate", "NOT Gate", "NAND Gate"],
+        "correct": "Waterfall",
+        "difficulty": 2,
+        "image": "images/truth_table.jpg"
+    },
+    {
         "question": "What is the primary of the 'constructor' in object-oriented programming?",
         "choices": ["To initialize an object", "To construct objects", "To destruct objects"],
         "correct": "To initialize an object",

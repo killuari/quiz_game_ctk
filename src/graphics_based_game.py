@@ -193,9 +193,9 @@ class GraphicsBasedGame():
         question_text.grid(sticky="NS")
         if not question.get_image() is None:
             image = ctk.CTkImage(question.get_image(), size=(800, 300))
-            question_image = ctk.CTkLabel(self.__question_frame, text="", image=image)
+            question_image = ctk.CTkLabel(self.__question_frame, text="", image=image, pady=15)
             question_image.grid(sticky="NS")
-        question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question)
+        question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question, wraplength=1200)
         question_answers.grid(sticky="N")
 
         for idx, option in enumerate(question.get_options()):

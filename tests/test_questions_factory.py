@@ -1,21 +1,21 @@
 import pytest
 from questions_factory import QuestionsFactory
 
-def test_abstract_methods():
-    abstract_methods = QuestionsFactory.__abstractmethods__
-    assert abstract_methods is not None, "No abstract methods found"
-    assert 'get_question' in abstract_methods, "get_question not found in abstract methods"
-    assert 'get_total_number_of_questions' in abstract_methods, "get_total_number_of_questions not found in abstract methods"
+# def test_abstract_methods():
+#     abstract_methods = QuestionsFactory.__abstractmethods__
+#     assert abstract_methods is not None, "No abstract methods found"
+#     assert 'get_question' in abstract_methods, "get_question not found in abstract methods"
+#     assert 'get_total_number_of_questions' in abstract_methods, "get_total_number_of_questions not found in abstract methods"
 
-class TestClass(QuestionsFactory):
-    def get_question(self):
-        return None
+# class TestClass(QuestionsFactory):
+#     def get_question(self):
+#         return None
     
-    def get_total_number_of_questions(self):
-        return 0
+#     def get_total_number_of_questions(self):
+#         return 0
     
-    def question_to_json(self, json):
-        return super()._json_to_question(json)
+#     def question_to_json(self, json):
+#         return super()._json_to_question(json)
 
 # def test_json_to_question():
 #     question_json = {

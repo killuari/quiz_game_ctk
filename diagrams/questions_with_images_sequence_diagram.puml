@@ -6,6 +6,10 @@ participant QuestionFrame
 participant GraphicsBasedGame
 participant Question
 
+create QuestionFrame
+GraphicsBasedGame -> QuestionFrame: create question_frame
+GraphicsBasedGame -> QuestionFrame: add CTkLabel question_title to grid
+GraphicsBasedGame -> QuestionFrame: add CTkLabel question_text to grid
 GraphicsBasedGame -> Question: get_image()
 alt question has image
     Question --> GraphicsBasedGame: return image
@@ -13,7 +17,9 @@ alt question has image
     GraphicsBasedGame -> QuestionFrame: add CTkLabel to CTkFrame grid
 else image not found
     Question --> GraphicsBasedGame: None
-
 end 
+QuestionFrame --> GraphicsBasedGame: finished question_frame
+GraphicsBasedGame -> QuestionFrame: on_next_question / on_end_game
+destroy QuestionFrame
 
 @enduml

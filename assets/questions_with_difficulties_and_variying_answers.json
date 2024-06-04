@@ -189,6 +189,13 @@
         "image": "images/star_topology.png"
     },
     {
+        "question": "Which data structure is shown in the image?",
+        "choices": ["Array", "Linked List", "Hash Table", "Tree", "Graph"],
+        "correct": "Linked List",
+        "difficulty": 2,
+        "image": "images/linked_list.png"
+    },
+    {
         "question": "Which programming concept is demonstrated in the image?",
         "choices": ["Concurrency", "Conditional Statements", "Recursion", "Looping"],
         "correct": "Recursion",
@@ -390,6 +397,20 @@
         "correct": "Scalability and flexibility with unstructured data",
         "difficulty": 2,
         "image": ""
+    },
+    {
+        "question": "What type of circuit is represented in the image?",
+        "choices": ["Full Adder", "Half Adder", "Multiplexer", "Demultiplexer"],
+        "correct": "Full Adder",
+        "difficulty": 3,
+        "image": "images/volladdierer.png"
+    },
+    {
+        "question": "What type of graph traversal is represented in the image?",
+        "choices": ["Depth-First Search (DFS)", "Breadth-First Search (BFS)", "Dijkstra's Algorithm", "A* Search"],
+        "correct": "Depth-First Search (DFS)",
+        "difficulty": 3,
+        "image": "images/depth_first.png"
     },
     {
         "question": "Which algorithm is generally more efficient than Bubble Sort for large datasets?",

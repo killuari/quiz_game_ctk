@@ -40,7 +40,10 @@ class QuestionsFromJsonFileFactory(QuestionsFactory):
                 random.shuffle(questions)
                 self.__questions[difficulty-1] = questions
             else:
-                questions = self.__questions[difficulty-1]
+                if index < len(self.__questions[difficulty-1]):
+                    questions = self.__questions[difficulty-1]
+                else:
+                    return None
             return questions[index]
         else:
             return None

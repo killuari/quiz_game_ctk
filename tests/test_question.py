@@ -1,14 +1,14 @@
-from question import Question
-import pytest
-from unittest.mock import patch
+# from question import Question
+# import pytest
+# from unittest.mock import patch
 
-question_string = "Welcher Buchstabe gefällt Ihnen am besten?"
-answer_strings = ["a", "b", "c", "d"]
-correct_answer = "a"
+# question_string = "Welcher Buchstabe gefällt Ihnen am besten?"
+# answer_strings = ["a", "b", "c", "d"]
+# correct_answer = "a"
 
-@pytest.fixture
-def question():
-    return Question(question_string, answer_strings, correct_answer)
+# @pytest.fixture
+# def question():
+#     return Question(question_string, answer_strings, correct_answer)
 
 # def test_get_question_text(question):
 #     assert question.get_question_text() == question_string, f"Expected {question_string}, but got {question.get_question_text()}"

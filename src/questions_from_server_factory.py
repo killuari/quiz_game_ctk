@@ -7,7 +7,7 @@ class QuestionsFromServerFactory(QuestionsFactory):
     def __init__(self, base_url: str, api_key: str):
         self.__base_url = base_url
         self.__api_key = api_key
-        self.__questions = [None, None, None]
+        self.__questions = [None, None, None] # questions per difficulty
 
     def get_total_number_of_questions(self) -> int:
         for i in range(3):

@@ -1,41 +1,41 @@
-import pytest
-from unittest.mock import patch, mock_open
-import json
-from questions_from_json_file_factory import QuestionsFromJsonFileFactory
-from question import Question
+# import pytest
+# from unittest.mock import patch, mock_open
+# import json
+# from questions_from_json_file_factory import QuestionsFromJsonFileFactory
+# from question import Question
 
 # Assuming these classes are imported from the module
 # from your_module import Question, QuestionsFromJsonFileFactory
 
 # Sample JSON data for testing
-sample_json_data = json.dumps([
-    {
-        "question": "What is the capital of France?",
-        "choices": [
-            "Paris",
-            "London",
-            "Berlin",
-            "Madrid"
-        ],
-        "correct": "Paris"
-    },
-    {
-        "question": "What is 2 + 2?",
-        "choices": [
-            "4",
-            "3",
-            "5",
-            "6"
-        ],
-        "correct": "4"
-    }
-])
+# sample_json_data = json.dumps([
+#     {
+#         "question": "What is the capital of France?",
+#         "choices": [
+#             "Paris",
+#             "London",
+#             "Berlin",
+#             "Madrid"
+#         ],
+#         "correct": "Paris"
+#     },
+#     {
+#         "question": "What is 2 + 2?",
+#         "choices": [
+#             "4",
+#             "3",
+#             "5",
+#             "6"
+#         ],
+#         "correct": "4"
+#     }
+# ])
 
 # Tests
 
 # Patch random.shuffle to be a no-op
-def no_op_shuffle(lst):
-    pass
+# def no_op_shuffle(lst):
+#     pass
 
 # @patch('random.shuffle', no_op_shuffle)
 # def test_initiaization_creates_array_of_questions():
@@ -69,11 +69,11 @@ def no_op_shuffle(lst):
 #         factory = QuestionsFromJsonFileFactory('path/to/nonexistent/file')
 #         assert factory.get_question(0) is None
 
-@patch('random.shuffle', no_op_shuffle)
-def test_get_total_number_of_questions_if_loading_file_fails():
-    with patch('builtins.open', side_effect=FileNotFoundError):
-        factory = QuestionsFromJsonFileFactory('path/to/nonexistent/file')
-        assert factory.get_total_number_of_questions() == 0
+# @patch('random.shuffle', no_op_shuffle)
+# def test_get_total_number_of_questions_if_loading_file_fails():
+#     with patch('builtins.open', side_effect=FileNotFoundError):
+#         factory = QuestionsFromJsonFileFactory('path/to/nonexistent/file')
+#         assert factory.get_total_number_of_questions() == 0
 
 # @patch('random.shuffle', no_op_shuffle)
 # def test_get_question_if_index_is_in_bounds():

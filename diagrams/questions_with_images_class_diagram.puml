@@ -3,20 +3,6 @@ hide empty members
 skin rose
 skinparam classAttributeIconSize 0
 
-class Difficulty {
-    - app: CTk
-    - difficulty: str
-    - on_difficulty_selected: callable
-    - on_back_pressed: callable
-    - main_frame: CTkFrame
-    + __init__(app: CTk, on_difficulty_selected: callable, on_back_pressed: callable)
-    - on_dropdown_pressed(difficulty: str): None
-    - on_start_button_pressed(): None
-    - on_back_button_pressed(): None
-    - create_widgets(): None
-    - destroy(): None
-}
-
 class GraphicsBasedGame {
     - app: CTk
     - questions_from_file: QuestionsFromJsonFileFactory
@@ -45,6 +31,7 @@ class GraphicsBasedGame {
     - on_highscore_reset_button_pressed(): None
     - on_right_answer(): None
     - on_wrong_answer(): None
+    - on_end_button_pressed(): None
     - draw_menu(): None
     - draw_highscores(new_score: int): None
     - draw_question(question: Question, last_answer_correct: bool): None
@@ -59,7 +46,6 @@ class QuestionsFromJsonFileFactory {
     - load_questions(path_to_file: String): Question[]
     + get_total_number_of_questions(): int
     + get_question(index: int): Question
-    + reload_questions(): None
 }
 
 class QuestionsFromServerFactory {
@@ -80,7 +66,24 @@ interface QuestionsFactory {
     # json_to_question(json: dictionary): Question
 }
 
-GraphicsBasedGame "1" *--> "1..n" Difficulty
+class Question {
+    - answers: Answer[]
+    - difficulty: int
+    - question_text: String
+    - image: str
+    - __init__(question_text: String, answer_texts: String[], correct_answer_text: String)
+    + get_question_text(): String
+    + get_answers(): Answer[]
+    + shuffle_answers(): None
+    + get_image(): image
+    + get_difficulty(): int
+    + get_options(): String[]
+    + __str__(): String
+}
+
+QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
+QuestionsFromServerFactory "1" *--> "1..n" Question: questions
+
 GraphicsBasedGame "1" *--> "1" QuestionsFromServerFactory
 GraphicsBasedGame "1" *--> "1" QuestionsFromJsonFileFactory
 QuestionsFromServerFactory --|> QuestionsFactory

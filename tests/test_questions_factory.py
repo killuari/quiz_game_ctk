@@ -1,5 +1,5 @@
-import pytest
-from questions_factory import QuestionsFactory
+# import pytest
+# from questions_factory import QuestionsFactory
 
 # def test_abstract_methods():
 #     abstract_methods = QuestionsFactory.__abstractmethods__

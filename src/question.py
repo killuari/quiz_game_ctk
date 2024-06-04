@@ -1,11 +1,13 @@
 import random
 from answer import Answer
+from PIL import Image
 
 class Question():
-    def __init__(self, question_text: str, answer_texts: list[str], correct_answer_text: str, difficulty: int):
+    def __init__(self, question_text: str, answer_texts: list[str], correct_answer_text: str, difficulty: int, image: str):
         self.__question_text : str = question_text
         self.__difficulty = difficulty
         self.__answers: list[Answer] = []
+        self.__image: str = image
 
         for answer_text in answer_texts:
             self.__answers.append(Answer(answer_text, answer_text == correct_answer_text))
@@ -25,6 +27,15 @@ class Question():
     
     def get_difficulty(self) -> int:
         return self.__difficulty
+    
+    def get_image(self) -> Image:
+        image = None
+        if self.__image != "":
+            try:
+                image = Image.open(self.__image)
+            except Exception:
+                print(f"Could not open Image from path {self.__image}")
+        return image
     
     def __str__(self) -> str:
         question_print = ""

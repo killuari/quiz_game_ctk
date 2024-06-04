@@ -180,20 +180,20 @@ class GraphicsBasedGame():
         self.__question_frame.grid_rowconfigure((0, 1, 2, 3), weight=1)
 
         self.__answer_buttons_frame = ctk.CTkFrame(self.__question_frame)
-        self.__answer_buttons_frame.grid(row=3, sticky="NS", pady=15)
+        self.__answer_buttons_frame.grid(row=3, sticky="N", pady=15)
 
         font_title = ctk.CTkFont(family="Helvetica", size=40)
         font_question = ctk.CTkFont(family="Helvetica", size=30)
         font_stats = ctk.CTkFont(family="Helvetica", size=35)
 
-        score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats)
-        lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats)
+        score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats, width=200)
+        lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats, width=200)
         self.__timer_label = ctk.CTkLabel(self.__stats_frame, text="", font=font_stats)
 
         self.__stats_frame.grid_columnconfigure((0, 1, 2), weight=1)
-        score_label.grid(column=0, row=0, sticky="W", padx=20, pady=15)
+        score_label.grid(column=0, row=0, sticky="W", padx=10, pady=15)
         self.__timer_label.grid(column=1, row=0, sticky="EW", padx=200, pady=15)
-        lives_label.grid(column=2, row=0, sticky="E", padx=20, pady=15)
+        lives_label.grid(column=2, row=0, sticky="E", padx=10, pady=15)
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)
         question_title.grid(row=0, sticky="N", pady=5)

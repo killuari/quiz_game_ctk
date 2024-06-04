@@ -45,9 +45,12 @@ class QuestionsFromServerFactory(QuestionsFactory):
             if self.__questions[difficulty-1] is None:
                 questions = self.__load_questions(difficulty)
                 random.shuffle(questions)
-                self.__questions[difficulty-1] = questions
+                self.__questions[difficulty-1] = questions.copy()
             else:
-                questions = self.__questions[difficulty-1]
+                if index < len(self.__questions[difficulty-1]):
+                    questions = self.__questions[difficulty-1].copy()
+                else:
+                    return None
 
             return questions[index]
 

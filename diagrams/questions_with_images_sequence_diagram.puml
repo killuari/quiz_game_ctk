@@ -1,0 +1,19 @@
+@startuml
+skin rose
+skinparam style strictuml
+
+participant QuestionFrame
+participant GraphicsBasedGame
+participant Question
+
+GraphicsBasedGame -> Question: get_image()
+alt question has image
+    Question --> GraphicsBasedGame: return image
+    GraphicsBasedGame -> GraphicsBasedGame: create CTkLabel with image
+    GraphicsBasedGame -> QuestionFrame: add CTkLabel to CTkFrame grid
+else image not found
+    Question --> GraphicsBasedGame: None
+
+end 
+
+@enduml

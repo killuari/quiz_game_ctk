@@ -7,7 +7,6 @@ from menu import Menu
 from player import Player
 from timer import QuestionTimer
 from difficulty import Difficulty
-from PIL import Image
 
 class GraphicsBasedGame():
     def __init__(self):
@@ -211,7 +210,7 @@ class GraphicsBasedGame():
 
         for idx, answer in enumerate(question.get_answers()):
             button_command = self.__on_right_answer if question.get_answers()[idx].is_correct() else self.__on_wrong_answer
-            # button_text = "".join([f"{char}\n" if idx%35==0 and idx!=0 else char for idx, char in enumerate(str(answer))]) (should wrap the length of the text on the button)
+            # button_text = "".join([f"{char}\n" if idx%35==0 and idx!=0 else char for idx, char in enumerate(str(answer))])    (should wrap the length of the text on the button)
             button = ctk.CTkButton(self.__answer_buttons_frame, text=f"{question.get_options()[idx]}) {str(answer)}", width=270, height=50, font=font_question, command=button_command)
             button._text_label.configure(wraplength=400) # but this way is easier
             button.grid(column=idx%2, row=int(idx/2), sticky="NSEW", padx=10, pady=10)

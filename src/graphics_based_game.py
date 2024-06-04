@@ -218,10 +218,10 @@ class GraphicsBasedGame():
             button.grid(column=idx%2, row=int(idx/2), sticky="NSEW", padx=10, pady=10)
 
         self.__question_buttons_frame.grid_columnconfigure((0, 1), weight=1)
-        stop_button = button = ctk.CTkButton(self.__question_buttons_frame, text=f"End Game", width=230, height=40, font=font_question, command=self.__on_end_button_pressed, fg_color="#623838", hover_color="#432626")
+        stop_button = button = ctk.CTkButton(self.__question_buttons_frame, text=f"End Game", width=370, height=40, font=font_question, command=self.__on_end_button_pressed, fg_color="#623838", hover_color="#432626")
         if self.__connected_to_server:
-            report_button = ctk.CTkButton(self.__question_buttons_frame, command=lambda: self.__report.on_question_report(question), text=f"Report incorrect question", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
+            report_button = ctk.CTkButton(self.__question_buttons_frame, command=lambda: self.__report.on_question_report(question), text=f"Report incorrect question", width=370, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
         else:
-            report_button = ctk.CTkButton(self.__question_buttons_frame, text=f"Not connected to Server", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
-        stop_button.grid(column=0, row=0, sticky="E", padx=75, pady=10)
-        report_button.grid(column=1, row=0, sticky="W", padx=75, pady=10)
+            report_button = ctk.CTkButton(self.__question_buttons_frame, text=f"Not connected to Server", width=370, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
+        stop_button.grid(column=0, row=0, sticky="E", padx=25, pady=10)
+        report_button.grid(column=1, row=0, sticky="W", padx=25, pady=10)

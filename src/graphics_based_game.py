@@ -16,7 +16,7 @@ class GraphicsBasedGame():
         self.__app = ctk.CTk()
         self.__app.title("Quiz King")
         self.__app.minsize(1280, 720)
-        self.__app.maxsize(1280, 720)
+        self.__app.maxsize(1400, 720)
         self.__app.resizable(False, False)
 
         # Init Questions and Highscore
@@ -131,6 +131,14 @@ class GraphicsBasedGame():
         else:
             self.__next_question()
 
+    def __on_end_button_pressed(self):
+        self.__stats_frame.destroy()
+        self.__question_frame.destroy()
+        self.__question_buttons_frame.destroy()
+
+        self.__highscore.update(self.__player)
+        self.__draw_highscores(new_score=self.__player.score().get())
+
     #----Draw Functions----
     def __draw_menu(self):
         self.__menu = Menu(self.__app)
@@ -169,10 +177,15 @@ class GraphicsBasedGame():
 
         self.__stats_frame = ctk.CTkFrame(self.__app, width=1200)
         self.__question_frame = ctk.CTkFrame(self.__app, width=1200)
-        self.__question_buttons_frame = ctk.CTkFrame(self.__app)
+        self.__question_buttons_frame = ctk.CTkFrame(self.__app, width=1200)
         self.__stats_frame.grid(row=0, sticky="N")
         self.__question_frame.grid(row=1, sticky="NS")
-        self.__question_buttons_frame.grid(row=2)
+        self.__question_buttons_frame.grid(row=2, sticky="S")
+
+        self.__question_frame.grid_rowconfigure((0, 1, 2, 3), weight=1)
+
+        self.__answer_buttons_frame = ctk.CTkFrame(self.__question_frame)
+        self.__answer_buttons_frame.grid(row=3, sticky="NS", pady=15)
 
         font_title = ctk.CTkFont(family="Helvetica", size=40)
         font_question = ctk.CTkFont(family="Helvetica", size=30)
@@ -182,23 +195,29 @@ class GraphicsBasedGame():
         lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats)
         self.__timer_label = ctk.CTkLabel(self.__stats_frame, text="", font=font_stats)
 
-        self.__stats_frame.grid_columnconfigure((0, 1), weight=1)
+        self.__stats_frame.grid_columnconfigure((0, 1, 2), weight=1)
         score_label.grid(column=0, row=0, sticky="W", padx=20, pady=15)
         self.__timer_label.grid(column=1, row=0, sticky="EW", padx=200, pady=15)
         lives_label.grid(column=2, row=0, sticky="E", padx=20, pady=15)
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)
-        question_title.grid(sticky="S")
+        question_title.grid(row=0, sticky="N", pady=5)
         question_text = ctk.CTkLabel(self.__question_frame, text=question.get_question_text(), font=font_question, wraplength=1200)
-        question_text.grid(sticky="NS")
+        question_text.grid(row=1, sticky="N", padx=10, pady=5)
         if not question.get_image() is None:
-            image = ctk.CTkImage(question.get_image(), size=(800, 300))
-            question_image = ctk.CTkLabel(self.__question_frame, text="", image=image, pady=15)
-            question_image.grid(sticky="NS")
-        question_answers = ctk.CTkLabel(self.__question_frame, text=str(question), font=font_question, wraplength=1200)
-        question_answers.grid(sticky="N")
+            image = ctk.CTkImage(question.get_image(), size=(800, 250))
+            question_image = ctk.CTkLabel(self.__question_frame, text="", image=image, pady=15, padx=10)
+            question_image.grid(row=2, sticky="N")
 
-        for idx, option in enumerate(question.get_options()):
+        for idx, answer in enumerate(question.get_answers()):
             button_command = self.__on_right_answer if question.get_answers()[idx].is_correct() else self.__on_wrong_answer
-            button = ctk.CTkButton(self.__question_buttons_frame, text=option.upper(), width=280, height=56, command=button_command)
-            button.grid(column=idx%4, row=int(idx/4), sticky="NSEW", padx=10, pady=10)
+            # button_text = "".join([f"{char}\n" if idx%35==0 and idx!=0 else char for idx, char in enumerate(str(answer))]) (should wrap the length of the text on the button)
+            button = ctk.CTkButton(self.__answer_buttons_frame, text=f"{question.get_options()[idx]}) {str(answer)}", width=270, height=50, font=font_question, command=button_command)
+            button._text_label.configure(wraplength=400) # but this way is easier
+            button.grid(column=idx%2, row=int(idx/2), sticky="NSEW", padx=10, pady=10)
+
+        self.__question_buttons_frame.grid_columnconfigure((0, 1), weight=1)
+        stop_button = button = ctk.CTkButton(self.__question_buttons_frame, text=f"End Game", width=230, height=40, font=font_question, command=self.__on_end_button_pressed, fg_color="#623838", hover_color="#432626")
+        placeholder_button = ctk.CTkButton(self.__question_buttons_frame, text=f"Placeholder", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
+        stop_button.grid(column=0, row=0, sticky="E", padx=75, pady=10)
+        placeholder_button.grid(column=1, row=0, sticky="W", padx=75, pady=10)

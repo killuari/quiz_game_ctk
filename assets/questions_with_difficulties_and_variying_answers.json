@@ -214,7 +214,7 @@
         "choices": ["AND Gate", "OR Gate", "XOR Gate", "NOT Gate", "NAND Gate"],
         "correct": "Waterfall",
         "difficulty": 2,
-        "image": "images/truth_table.jpg"
+        "image": "images/truth_table.png"
     },
     {
         "question": "What is the primary of the 'constructor' in object-oriented programming?",

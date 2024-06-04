@@ -48,12 +48,11 @@ class GraphicsBasedGame():
 
     def __next_question(self):
         current_question = self.__get_question(self.__current_question_idx, self.__difficulty)
-        self.__draw_question(current_question)
-        QuestionTimer(self.__on_wrong_answer, self.__timer_label)
-
-        if self.__current_question_idx >= self.__get_total_number_of_questions():
-            self.__current_question_idx = 0
+        if current_question is None:
+            self.__on_end_button_pressed()
         else:
+            self.__draw_question(current_question)
+            QuestionTimer(self.__on_wrong_answer, self.__timer_label)
             self.__current_question_idx += 1
 
     #----QuestionFactory Functions----
@@ -204,7 +203,8 @@ class GraphicsBasedGame():
         question_text = ctk.CTkLabel(self.__question_frame, text=question.get_question_text(), font=font_question, wraplength=1200)
         question_text.grid(row=1, sticky="N", padx=10, pady=5)
         if not question.get_image() is None:
-            image = ctk.CTkImage(question.get_image(), size=(800, 250))
+            image_size = (800, 300) if len(question.get_answers()) <= 4 else (800, 250)
+            image = ctk.CTkImage(question.get_image(), size=image_size)
             question_image = ctk.CTkLabel(self.__question_frame, text="", image=image, pady=15, padx=10)
             question_image.grid(row=2, sticky="N")
 

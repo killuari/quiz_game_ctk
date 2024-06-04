@@ -56,13 +56,6 @@
         "image": ""
     },
     {
-        "question": "What is the primary use of an operating system?",
-        "choices": ["To manage computer hardware and software", "To create software applications", "To browse the internet"],
-        "correct": "To manage computer hardware and software",
-        "difficulty": 1,
-        "image": ""
-    },
-    {
         "question": "Which one of these is considered secondary storage?",
         "choices": ["RAM", "Hard Disk Drive", "CPU Cache", "Registers"],
         "correct": "Hard Disk Drive",
@@ -219,7 +212,7 @@
     {
         "question": "What kind of logic gate is illustrated in the image?",
         "choices": ["AND Gate", "OR Gate", "XOR Gate", "NOT Gate", "NAND Gate"],
-        "correct": "Waterfall",
+        "correct": "AND Gate",
         "difficulty": 2,
         "image": "images/truth_table.png"
     },

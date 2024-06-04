@@ -27,5 +27,12 @@ def question_count(api_key):
 
     return jsonify({"count": len(questions)})
 
+@app.route('/<api_key>/report_question', methods=['POST'])
+def report_question(api_key):
+    if api_key != API_KEY:
+        return abort(403, description="Forbidden: Invalid API Key")
+    
+    return jsonify(request.get_json())
+
 if __name__ == '__main__':
     app.run(debug=True)

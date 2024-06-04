@@ -7,6 +7,7 @@ from menu import Menu
 from player import Player
 from timer import QuestionTimer
 from difficulty import Difficulty
+from report_question import ReportQuestion
 
 class GraphicsBasedGame():
     def __init__(self):
@@ -22,6 +23,7 @@ class GraphicsBasedGame():
         self.__questions_from_file = QuestionsFromJsonFileFactory("assets/questions_final.json")
         self.__questions_from_server = QuestionsFromServerFactory("http://127.0.0.1:5000", "abcd1234")
         self.__highscore = Highscore("assets/highscore.json")
+        self.__report = ReportQuestion("http://127.0.0.1:5000", "abcd1234")
         self.__current_question_idx = 0
         self.__difficulty: int = None
 
@@ -218,8 +220,8 @@ class GraphicsBasedGame():
         self.__question_buttons_frame.grid_columnconfigure((0, 1), weight=1)
         stop_button = button = ctk.CTkButton(self.__question_buttons_frame, text=f"End Game", width=230, height=40, font=font_question, command=self.__on_end_button_pressed, fg_color="#623838", hover_color="#432626")
         if self.__connected_to_server:
-            placeholder_button = ctk.CTkButton(self.__question_buttons_frame, text=f"Report incorrect question", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
+            report_button = ctk.CTkButton(self.__question_buttons_frame, command=lambda: self.__report.on_question_report(question), text=f"Report incorrect question", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
         else:
-            placeholder_button = ctk.CTkButton(self.__question_buttons_frame, text=f"Not connected to Server", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
+            report_button = ctk.CTkButton(self.__question_buttons_frame, text=f"Not connected to Server", width=230, height=40, font=font_question, fg_color="#7E2626", hover_color="#571B1B")
         stop_button.grid(column=0, row=0, sticky="E", padx=75, pady=10)
-        placeholder_button.grid(column=1, row=0, sticky="W", padx=75, pady=10)
+        report_button.grid(column=1, row=0, sticky="W", padx=75, pady=10)

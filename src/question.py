@@ -3,7 +3,8 @@ from answer import Answer
 from PIL import Image
 
 class Question():
-    def __init__(self, question_text: str, answer_texts: list[str], correct_answer_text: str, difficulty: int, image: str):
+    def __init__(self, id: int, question_text: str, answer_texts: list[str], correct_answer_text: str, difficulty: int, image: str):
+        self.__id = id
         self.__question_text : str = question_text
         self.__difficulty = difficulty
         self.__answers: list[Answer] = []
@@ -27,6 +28,9 @@ class Question():
     
     def get_difficulty(self) -> int:
         return self.__difficulty
+    
+    def get_id(self) -> int:
+        return self.__id
     
     def get_image(self) -> Image:
         image = None

@@ -55,7 +55,6 @@ class GraphicsBasedGame():
         else:
             self.__draw_question(current_question)
             QuestionTimer(self.__on_wrong_answer, self.__timer_label)
-            self.__current_question_idx += 1
 
     #----QuestionFactory Functions----
     def __get_question(self, index: int, difficulty: int) -> Question:
@@ -64,12 +63,6 @@ class GraphicsBasedGame():
             if not question_from_server is None:
                 return question_from_server
         return self.__questions_from_file.get_question(index, difficulty)
-
-    def __get_total_number_of_questions(self) -> int:
-        if self.__connected_to_server:
-            if self.__questions_from_server.get_total_number_of_questions() != 0:
-                return self.__questions_from_server.get_total_number_of_questions()
-        return self.__questions_from_file.get_total_number_of_questions()
 
     #----Button Event Functions----
     def __on_difficulty_selected(self, difficulty: str):
@@ -115,6 +108,8 @@ class GraphicsBasedGame():
         self.__stats_frame.destroy()
         self.__question_frame.destroy()
         self.__question_buttons_frame.destroy()
+
+        self.__current_question_idx += 1
 
         self.__next_question()
 
@@ -185,20 +180,20 @@ class GraphicsBasedGame():
         self.__question_frame.grid_rowconfigure((0, 1, 2, 3), weight=1)
 
         self.__answer_buttons_frame = ctk.CTkFrame(self.__question_frame)
-        self.__answer_buttons_frame.grid(row=3, sticky="NS", pady=15)
+        self.__answer_buttons_frame.grid(row=3, sticky="N", pady=15)
 
         font_title = ctk.CTkFont(family="Helvetica", size=40)
         font_question = ctk.CTkFont(family="Helvetica", size=30)
         font_stats = ctk.CTkFont(family="Helvetica", size=35)
 
-        score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats)
-        lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats)
+        score_label = ctk.CTkLabel(self.__stats_frame, text=f"Score: {self.__player.score().get()}", font=font_stats, width=200)
+        lives_label = ctk.CTkLabel(self.__stats_frame, text=f"Lives: {self.__player.lives().get()}", font=font_stats, width=200)
         self.__timer_label = ctk.CTkLabel(self.__stats_frame, text="", font=font_stats)
 
         self.__stats_frame.grid_columnconfigure((0, 1, 2), weight=1)
-        score_label.grid(column=0, row=0, sticky="W", padx=20, pady=15)
+        score_label.grid(column=0, row=0, sticky="W", padx=10, pady=15)
         self.__timer_label.grid(column=1, row=0, sticky="EW", padx=200, pady=15)
-        lives_label.grid(column=2, row=0, sticky="E", padx=20, pady=15)
+        lives_label.grid(column=2, row=0, sticky="E", padx=10, pady=15)
 
         question_title = ctk.CTkLabel(self.__question_frame, text="----- Question -----", font=font_title)
         question_title.grid(row=0, sticky="N", pady=5)

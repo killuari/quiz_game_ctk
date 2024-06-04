@@ -38,12 +38,11 @@ class QuestionsFromJsonFileFactory(QuestionsFactory):
             if self.__questions[difficulty-1] is None:
                 questions = self.__load_questions(difficulty)
                 random.shuffle(questions)
-                self.__questions[difficulty-1] = questions
+                self.__questions[difficulty-1] = questions.copy()
             else:
-                if index < len(self.__questions[difficulty-1]):
-                    questions = self.__questions[difficulty-1]
-                else:
-                    return None
+                questions = self.__questions[difficulty-1].copy()
+            if index >= len(self.__questions[difficulty-1]):
+                return None
             return questions[index]
         else:
             return None

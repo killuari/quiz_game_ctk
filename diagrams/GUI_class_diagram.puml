@@ -7,6 +7,7 @@ class GraphicsBasedGame {
     - app: CTk
     - questions_from_file: QuestionsFromJsonFileFactory
     - questions_from_server: QuestionsFromServerFactory
+    - report: ReportQuestion
     - connected_to_server: boolean
     - player: Player
     - highscore: Highscore
@@ -17,18 +18,21 @@ class GraphicsBasedGame {
     - question_frame: CTkFrame
     - question_buttons_frame: CTkFrame
     - current_question_idx: int
+    - difficulty: int
     + __init__()
     + run(): None
     - get_total_number_of_questions(): int
     - get_question(index: int): Question
     - get_player(): None
-    - next_question(last_answer_correct: boolean)
+    - next_question(): None
+    - on_difficulty_selected(difficulty: String): None
     - on_play_button_pressed(): None
     - on_highscore_button_pressed(): None
     - on_highscore_back_button_pressed(): None
     - on_highscore_reset_button_pressed(): None
     - on_right_answer(): None
     - on_wrong_answer(): None
+    - on_end_button_pressed(): None
     - draw_menu(): None
     - draw_highscores(new_score: int): None
     - draw_question(question: Question, last_answer_correct: bool): None

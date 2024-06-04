@@ -55,7 +55,6 @@ class GraphicsBasedGame():
         else:
             self.__draw_question(current_question)
             QuestionTimer(self.__on_wrong_answer, self.__timer_label)
-            self.__current_question_idx += 1
 
     #----QuestionFactory Functions----
     def __get_question(self, index: int, difficulty: int) -> Question:
@@ -64,12 +63,6 @@ class GraphicsBasedGame():
             if not question_from_server is None:
                 return question_from_server
         return self.__questions_from_file.get_question(index, difficulty)
-
-    def __get_total_number_of_questions(self) -> int:
-        if self.__connected_to_server:
-            if self.__questions_from_server.get_total_number_of_questions() != 0:
-                return self.__questions_from_server.get_total_number_of_questions()
-        return self.__questions_from_file.get_total_number_of_questions()
 
     #----Button Event Functions----
     def __on_difficulty_selected(self, difficulty: str):
@@ -115,6 +108,8 @@ class GraphicsBasedGame():
         self.__stats_frame.destroy()
         self.__question_frame.destroy()
         self.__question_buttons_frame.destroy()
+
+        self.__current_question_idx += 1
 
         self.__next_question()
 

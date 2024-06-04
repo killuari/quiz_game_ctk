@@ -7,6 +7,7 @@ class GraphicsBasedGame {
     - app: CTk
     - questions_from_file: QuestionsFromJsonFileFactory
     - questions_from_server: QuestionsFromServerFactory
+    - report: ReportQuestion
     - connected_to_server: boolean
     - player: Player
     - highscore: Highscore
@@ -38,32 +39,11 @@ class GraphicsBasedGame {
 
 }
 
-class QuestionsFromJsonFileFactory {
-    - questions: Question[]
-    - all_questions: Question[]
-    - path_to_file: String
-    + __init__(path_to_file: String)
-    - load_questions(path_to_file: String): Question[]
-    + get_total_number_of_questions(): int
-    + get_question(index: int): Question
-}
-
-class QuestionsFromServerFactory {
-    - api_key: String
-    - base_url: String
-    - questions: Question[]
-    + __init__(base_url: String, api_key: String)
-    + get_total_number_of_questions(): int
-    + get_question(index: int): Question
-    + reload_questions(): None
-    - load_questions(difficulty: int): Question[]
-}
-
 interface QuestionsFactory {
     + {abstract} get_total_number_of_questions(): int
     + {abstract} get_question(index: int): Question
     + {abstract} reload_questions(): None
-    # json_to_question(json: dictionary): Question
+    # json_to_question(json: dictionary, id: int): Question
 }
 
 class Question {
@@ -71,7 +51,7 @@ class Question {
     - difficulty: int
     - question_text: String
     - image: str
-    - __init__(question_text: String, answer_texts: String[], correct_answer_text: String, difficulty: int, image: str)
+    - __init__(id: int, question_text: String, answer_texts: String[], correct_answer_text: String, difficulty: int, image: str)
     + get_question_text(): String
     + get_answers(): Answer[]
     + shuffle_answers(): None
@@ -81,9 +61,19 @@ class Question {
     + __str__(): String
 }
 
+class ReportQuestion {
+    - base_url: str
+    - api_key: str
+    - reported: int[]
+    + __init__(base_url: str, api_key: str)
+    + on_question_report(question: Question): None
+}
+
+
 QuestionsFromJsonFileFactory "1" *--> "1..n" Question: questions
 QuestionsFromServerFactory "1" *--> "1..n" Question: questions
-
+GraphicsBasedGame "1" *--> "1" ReportQuestion
+ReportQuestion "1" --> "1..n" Question
 GraphicsBasedGame "1" *--> "1" QuestionsFromServerFactory
 GraphicsBasedGame "1" *--> "1" QuestionsFromJsonFileFactory
 QuestionsFromServerFactory --|> QuestionsFactory

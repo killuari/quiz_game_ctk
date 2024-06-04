@@ -37,7 +37,7 @@ class QuestionsFromServerFactory(QuestionsFactory):
                 response = requests.get(f"{self.__base_url}/{self.__api_key}/question?index={index}")
                 if response.status_code == 200:
                     question_data = response.json()
-                    return self._json_to_question(question_data)
+                    return self._json_to_question(question_data, index)
                 elif response.status_code == 403:
                     return None
             return None

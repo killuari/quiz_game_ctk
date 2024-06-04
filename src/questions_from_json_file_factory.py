@@ -14,8 +14,8 @@ class QuestionsFromJsonFileFactory(QuestionsFactory):
         try:
             with open(self.__path_to_file) as file:
                 questions_data = json.load(file)
-                for data in questions_data:
-                    question = self._json_to_question(data)
+                for idx, data in enumerate(questions_data):
+                    question = self._json_to_question(data, idx)
                     if difficulty is None:
                         questions.append(question)
                     elif question.get_difficulty() == difficulty:

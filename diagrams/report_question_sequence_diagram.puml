@@ -1,0 +1,30 @@
+@startuml
+skin rose
+skinparam style strictuml
+
+participant GraphicsBasedGame
+participant Question
+participant ReportQuestion
+participant QuestionServer
+participant ReportButton
+
+create ReportButton
+GraphicsBasedGame -> ReportButton: create Button
+alt connected to QuestionServer
+    GraphicsBasedGame -> ReportButton: set command to on_question_report
+    ReportButton -> ReportQuestion: on_question_report(question)
+    ReportQuestion -> Question: get_id()
+    Question --> ReportQuestion: id
+    alt not reported yet (in current game loop)
+        ReportQuestion -> QuestionServer: POST request with id
+        alt valid api_key
+            QuestionServer --> ReportQuestion: return id back
+        else
+            QuestionServer --> ReportQuestion: Error **404**
+        end
+        ReportQuestion -> ReportQuestion: append to reported
+    end
+end
+
+
+@enduml

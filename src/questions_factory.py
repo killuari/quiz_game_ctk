@@ -14,5 +14,7 @@ class QuestionsFactory(ABC):
     def reload_questions(self) -> None:
         pass
 
-    def _json_to_question(self, json: dict) -> Question:
-        return Question(json['question'], json['choices'], json['correct'], json['difficulty'], json['image'])
+    def _json_to_question(self, json: dict, id: int) -> Question:
+        if "id" not in json:
+            return Question(id, json['question'], json['choices'], json['correct'], json['difficulty'], json['image'])
+        return Question(json['id'], json['question'], json['choices'], json['correct'], json['difficulty'], json['image'])
